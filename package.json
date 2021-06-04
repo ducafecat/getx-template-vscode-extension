@@ -7,12 +7,22 @@
     "vscode": "^1.56.0"
   },
   "categories": [
-    "Other"
+    "Programming Languages",
+    "Snippets"
+  ],
+  "tags": [
+    "flutter",
+    "dart",
+    "getx",
+    "template",
+    "generator",
+    "state-management"
   ],
   "repository": {
     "url": "https://github.com/ducafecat/getx-template-vscode-extension"
   },
   "publisher": "ducafecat",
+  "icon": "logo.png",
   "activationEvents": [
     "workspaceContains:**/pubspec.yaml"
   ],
@@ -43,7 +53,8 @@
     "test-watch": "tsc -watch -p ./",
     "pretest": "yarn run test-compile && yarn run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "vsce-package": "vsce package"
   },
   "devDependencies": {
     "@types/vscode": "^1.56.0",
