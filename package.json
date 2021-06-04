@@ -1,14 +1,18 @@
 {
   "name": "getx-template",
-  "displayName": "getx template",
+  "displayName": "getx template generator",
   "description": "It supports the getx library and provides effective creation of business modules for Flutter applications.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.56.0"
   },
   "categories": [
     "Other"
   ],
+  "repository": {
+    "url": "https://github.com/ducafecat/getx-template-vscode-extension"
+  },
+  "publisher": "ducafecat",
   "activationEvents": [
     "workspaceContains:**/pubspec.yaml"
   ],
