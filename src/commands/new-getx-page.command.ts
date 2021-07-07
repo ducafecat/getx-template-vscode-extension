@@ -3,7 +3,7 @@ import * as changeCase from "change-case";
 import * as mkdirp from "mkdirp";
 import { InputBoxOptions, OpenDialogOptions, Uri, window } from "vscode";
 import { existsSync, lstatSync, writeFile } from "fs";
-import { bindingsTemplate, controllerTemplate, indexTemplate, stateTemplate, viewTemplate, widgetsHelloWordTemplate, widgetsTemplate } from "../templates/getx-page.template";
+import { bindingsTemplate, controllerTemplate, indexTemplate, stateTemplate, viewTemplate, widgetsHelloTemplate, widgetsTemplate } from "../templates/getx-page.template";
 
 export const newGetxPage = async (uri: Uri) => {
   console.log(uri);
@@ -81,6 +81,6 @@ async function generateCode(
     bindingsTemplate(pageName, targetDirectory),
     viewTemplate(pageName, targetDirectory),
     widgetsTemplate(pageName, targetDirectory),
-    widgetsHelloWordTemplate(pageName, targetDirectory),
+    widgetsHelloTemplate(pageName, targetDirectory),
   ]);
 }

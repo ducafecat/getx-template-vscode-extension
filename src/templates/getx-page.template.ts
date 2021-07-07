@@ -189,7 +189,7 @@ import 'widgets/widgets.dart';
 class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
   // 内容页
   Widget _buildView() {
-    return HellowordWidget();
+    return HelloWidget();
   }
 
   @override
@@ -223,7 +223,7 @@ export function widgetsTemplate(pageName: string, targetDirectory: string) {
   const targetPath = `${targetDirectory}/${pageName}/widgets/widgets.dart`;
   const template = `library widgets;
 
-export './helloword.dart';
+export './hello.dart';
 `;
 
   return new Promise(async (resolve, reject) => {
@@ -242,17 +242,17 @@ export './helloword.dart';
   });
 }
 
-export function widgetsHelloWordTemplate(pageName: string, targetDirectory: string) {
+export function widgetsHelloTemplate(pageName: string, targetDirectory: string) {
   const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(pageName.toLowerCase());
-  const targetPath = `${targetDirectory}/${pageName}/widgets/helloword.dart`;
+  const targetPath = `${targetDirectory}/${pageName}/widgets/hello.dart`;
   const template = `import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../index.dart';
 
-/// hellowrod
-class HellowordWidget extends GetView<${pascalCaseName}Controller> {
+/// hello
+class HelloWidget extends GetView<${pascalCaseName}Controller> {
   @override
   Widget build(BuildContext context) {
     return Center(
