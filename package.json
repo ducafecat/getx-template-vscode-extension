@@ -50,12 +50,17 @@
           "GetxTemplate.PrefixFileName":{
             "type":"boolean",
             "default": false,
-            "description": "使用类名作为文件名前缀"
+            "description": "开始文件名前缀"
           },
           "GetxTemplate.SelectPathInOpenDialog":{
             "type":"boolean",
             "default": false,
             "description": "使用vscode快捷命令新建页面是否打开对话框选择目录位置"
+          },
+          "GetxTemplate.PascalCaseClassName":{
+            "type":"boolean",
+            "default": false,
+            "description": "修改类名为写开头的命名方式"
           }
         }
       }

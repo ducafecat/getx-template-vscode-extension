@@ -2,10 +2,12 @@ import * as changeCase from "change-case";
 import { existsSync, lstatSync, writeFile } from "fs";
 import * as vscode from 'vscode';
 
+const configPascalCaseClassName = 'GetxTemplate.PascalCaseClassName';
+
 export function indexTemplate(pageName: string, prefix: string, targetDirectory: string) {
-  const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
-  const snakeCaseName = changeCase.snakeCase(pageName);
   
+  const snakeCaseName = changeCase.snakeCase(pageName);
+
   var targetPath = `${targetDirectory}/${snakeCaseName}/index.dart`;
   var template = `library ${snakeCaseName};
 
@@ -45,12 +47,18 @@ export './${prefix}_view.dart';
 }
 
 export function stateTemplate(pageName: string, prefix: string, targetDirectory: string) {
-  const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
+  
+  var className = pageName;
+  const isPascalCaseName = vscode.workspace.getConfiguration().get(configPascalCaseClassName);
+  if (isPascalCaseName) {
+    className = changeCase.pascalCase(pageName.toLowerCase());
+  }
+
   const snakeCaseName = changeCase.snakeCase(pageName);
   var targetPath = `${targetDirectory}/${snakeCaseName}/state.dart`;
   const template = `import 'package:get/get.dart';
 
-class ${pascalCaseName}State {
+class ${className}State {
   // title
   final _title = "".obs;
   set title(value) => this._title.value = value;
@@ -80,7 +88,13 @@ class ${pascalCaseName}State {
 }
 
 export function controllerTemplate(pageName: string, prefix: string, targetDirectory: string) {
-  const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
+
+  var className = pageName;
+  const isPascalCaseName = vscode.workspace.getConfiguration().get(configPascalCaseClassName);
+  if (isPascalCaseName) {
+    className = changeCase.pascalCase(pageName.toLowerCase());
+  }
+
   const snakeCaseName = changeCase.snakeCase(pageName);
   var targetPath = `${targetDirectory}/${snakeCaseName}/controller.dart`;
   if (prefix.trim() !== "") {
@@ -92,12 +106,12 @@ export function controllerTemplate(pageName: string, prefix: string, targetDirec
 
 ${importIndex}
 
-class ${pascalCaseName}Controller extends GetxController {
-  ${pascalCaseName}Controller();
+class ${className}Controller extends GetxController {
+  ${className}Controller();
 
   /// 响应式成员变量
 
-  final state = ${pascalCaseName}State();
+  final state = ${className}State();
 
   /// 成员变量
 
@@ -175,7 +189,13 @@ class ${pascalCaseName}Controller extends GetxController {
 }
 
 export function bindingsTemplate(pageName: string, prefix: string, targetDirectory: string) {
-  const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
+  
+  var className = pageName;
+  const isPascalCaseName = vscode.workspace.getConfiguration().get(configPascalCaseClassName);
+  if (isPascalCaseName) {
+    className = changeCase.pascalCase(pageName.toLowerCase());
+  }
+
   const snakeCaseName = changeCase.snakeCase(pageName);
   
   var targetPath = `${targetDirectory}/${snakeCaseName}/bindings.dart`;
@@ -189,10 +209,10 @@ export function bindingsTemplate(pageName: string, prefix: string, targetDirecto
 
 ${importController}
 
-class ${pascalCaseName}Binding implements Bindings {
+class ${className}Binding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<${pascalCaseName}Controller>(() => ${pascalCaseName}Controller());
+    Get.lazyPut<${className}Controller>(() => ${className}Controller());
   }
 }
 `;
@@ -219,7 +239,13 @@ class ${pascalCaseName}Binding implements Bindings {
 }
 
 export function viewTemplate(pageName: string, prefix: string, targetDirectory: string) {
-  const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
+  
+  var className = pageName;
+  const isPascalCaseName = vscode.workspace.getConfiguration().get(configPascalCaseClassName);
+  if (isPascalCaseName) {
+    className = changeCase.pascalCase(pageName.toLowerCase());
+  }
+
   const snakeCaseName = changeCase.snakeCase(pageName);
   
   var targetPath = `${targetDirectory}/${snakeCaseName}/view.dart`;
@@ -234,7 +260,7 @@ import 'package:get/get.dart';
 ${importIndex}
 import 'widgets/widgets.dart';
 
-class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
+class ${className}Page extends GetView<${className}Controller> {
   // 内容页
   Widget _buildView() {
     return HelloWidget();
@@ -271,7 +297,7 @@ class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
 }
 
 export function widgetsTemplate(pageName: string, prefix: string, targetDirectory: string) {
-  const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
+  
   const snakeCaseName = changeCase.snakeCase(pageName);
   var targetPath = `${targetDirectory}/${snakeCaseName}/widgets/widgets.dart`;
   const template = `library widgets;
@@ -301,7 +327,13 @@ export './hello.dart';
 }
 
 export function widgetsHelloTemplate(pageName: string, prefix: string, targetDirectory: string) {
-  const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
+  
+  var className = pageName;
+  const isPascalCaseName = vscode.workspace.getConfiguration().get(configPascalCaseClassName);
+  if (isPascalCaseName) {
+    className = changeCase.pascalCase(pageName.toLowerCase());
+  }
+
   const snakeCaseName = changeCase.snakeCase(pageName);
   var targetPath = `${targetDirectory}/${snakeCaseName}/widgets/hello.dart`;
   
@@ -316,7 +348,7 @@ import 'package:get/get.dart';
 ${importIndex}
 
 /// hello
-class HelloWidget extends GetView<${pascalCaseName}Controller> {
+class HelloWidget extends GetView<${className}Controller> {
   @override
   Widget build(BuildContext context) {
     return Center(
