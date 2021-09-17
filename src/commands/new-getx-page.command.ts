@@ -21,6 +21,11 @@ export const newGetxPage = async (uri: Uri) => {
   const isPrefixFileName = vscode.workspace.getConfiguration().get(configPrefixFileName);
   if (isPrefixFileName) {
     const inputPrefix = await promptForPrefix(pageName.toLowerCase());
+    if (_.isNil(inputPrefix) || inputPrefix.trim() === "") {
+      window.showErrorMessage("The Prefix must not be empty");
+      return;
+    }
+    
     if (inputPrefix !== undefined) {
       prefix = inputPrefix;
     }
