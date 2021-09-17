@@ -50,7 +50,7 @@
           "GetxTemplate.PrefixFileName":{
             "type":"boolean",
             "default": false,
-            "description": "开始文件名前缀"
+            "description": "开启文件名前缀"
           },
           "GetxTemplate.SelectPathInOpenDialog":{
             "type":"boolean",
