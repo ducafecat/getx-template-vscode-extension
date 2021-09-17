@@ -254,6 +254,9 @@ export function viewTemplate(pageName: string, prefix: string, targetDirectory: 
   }else {
     var importIndex = `import 'index.dart';`;
   }
+
+
+
   const template = `import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -263,7 +266,7 @@ import 'widgets/widgets.dart';
 class ${className}Page extends GetView<${className}Controller> {
   // 内容页
   Widget _buildView() {
-    return HelloWidget();
+    return ${pageName}MainWidget();
   }
 
   @override
@@ -300,9 +303,16 @@ export function widgetsTemplate(pageName: string, prefix: string, targetDirector
   
   const snakeCaseName = changeCase.snakeCase(pageName);
   var targetPath = `${targetDirectory}/${snakeCaseName}/widgets/widgets.dart`;
+
+  if (prefix.trim() !== "") {
+    var exportFile = `export './${prefix}_main.dart';`;
+  }else {
+    var exportFile = `export './${snakeCaseName}_main.dart';`;
+  }
+
   const template = `library widgets;
 
-export './hello.dart';
+${exportFile}
 `;
 
   return new Promise(async (resolve, reject) => {
@@ -326,7 +336,7 @@ export './hello.dart';
   });
 }
 
-export function widgetsHelloTemplate(pageName: string, prefix: string, targetDirectory: string) {
+export function widgetsMainViewTemplate(pageName: string, prefix: string, targetDirectory: string) {
   
   var className = pageName;
   const isPascalCaseName = vscode.workspace.getConfiguration().get(configPascalCaseClassName);
@@ -335,7 +345,7 @@ export function widgetsHelloTemplate(pageName: string, prefix: string, targetDir
   }
 
   const snakeCaseName = changeCase.snakeCase(pageName);
-  var targetPath = `${targetDirectory}/${snakeCaseName}/widgets/hello.dart`;
+  var targetPath = `${targetDirectory}/${snakeCaseName}/widgets/${snakeCaseName}_main.dart`;
   
   if (prefix.trim() !== "") {
     var importIndex = `import '../${prefix}_index.dart';`;
@@ -347,8 +357,8 @@ import 'package:get/get.dart';
 
 ${importIndex}
 
-/// hello
-class HelloWidget extends GetView<${className}Controller> {
+/// MainView
+class ${className}MainWidget extends GetView<${className}Controller> {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -361,7 +371,7 @@ class HelloWidget extends GetView<${className}Controller> {
   return new Promise(async (resolve, reject) => {
     
     if (prefix.trim() !== "") {
-      targetPath = `${targetDirectory}/${prefix}/widgets/hello.dart`;
+      targetPath = `${targetDirectory}/${prefix}/widgets/${prefix}_main.dart`;
     }
 
     writeFile(

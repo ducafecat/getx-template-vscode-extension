@@ -4,7 +4,7 @@ import * as mkdirp from "mkdirp";
 import * as vscode from 'vscode';
 import { InputBoxOptions, OpenDialogOptions, Uri, window } from "vscode";
 import { existsSync, lstatSync, writeFile } from "fs";
-import { bindingsTemplate, controllerTemplate, indexTemplate, stateTemplate, viewTemplate, widgetsHelloTemplate, widgetsTemplate } from "../templates/getx-page.template";
+import { bindingsTemplate, controllerTemplate, indexTemplate, stateTemplate, viewTemplate, widgetsMainViewTemplate, widgetsTemplate } from "../templates/getx-page.template";
 
 const configPrefixFileName = 'GetxTemplate.PrefixFileName';
 const configSelectPathInOpenDialog = 'GetxTemplate.SelectPathInOpenDialog';
@@ -143,6 +143,6 @@ async function generateCode(
     bindingsTemplate(pageName, prefix, targetDirectory),
     viewTemplate(pageName, prefix, targetDirectory),
     widgetsTemplate(pageName, prefix, targetDirectory),
-    widgetsHelloTemplate(pageName, prefix, targetDirectory),
+    widgetsMainViewTemplate(pageName, prefix, targetDirectory),
   ]);
 }
