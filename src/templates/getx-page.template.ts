@@ -2,13 +2,11 @@ import * as changeCase from "change-case";
 import { existsSync, lstatSync, writeFile } from "fs";
 import * as vscode from 'vscode';
 
-const configPrefixFileName = 'GetxTemplate.PrefixFileName';
-
-export function indexTemplate(pageName: string, targetDirectory: string) {
+export function indexTemplate(pageName: string, prefix: string, targetDirectory: string) {
   const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(pageName);
-  const isPrefixFileName = vscode.workspace.getConfiguration().get(configPrefixFileName);
-  var targetPath = `${targetDirectory}/${pageName}/index.dart`;
+  
+  var targetPath = `${targetDirectory}/${snakeCaseName}/index.dart`;
   var template = `library ${snakeCaseName};
 
 export './state.dart';
@@ -19,14 +17,15 @@ export './view.dart';
 
   return new Promise(async (resolve, reject) => {
 
-    if (isPrefixFileName) {
-      targetPath = `${targetDirectory}/${pageName}/${snakeCaseName}_index.dart`;
+    if (prefix.trim() !== "") {
+     
+      targetPath = `${targetDirectory}/${prefix}/${prefix}_index.dart`;
       template = `library ${snakeCaseName};
 
-export './${snakeCaseName}_state.dart';
-export './${snakeCaseName}_controller.dart';
-export './${snakeCaseName}_bindings.dart';
-export './${snakeCaseName}_view.dart';
+export './${prefix}_state.dart';
+export './${prefix}_controller.dart';
+export './${prefix}_bindings.dart';
+export './${prefix}_view.dart';
 `;
     }
 
@@ -45,11 +44,10 @@ export './${snakeCaseName}_view.dart';
   });
 }
 
-export function stateTemplate(pageName: string, targetDirectory: string) {
+export function stateTemplate(pageName: string, prefix: string, targetDirectory: string) {
   const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(pageName);
-  const isPrefixFileName = vscode.workspace.getConfiguration().get(configPrefixFileName);
-  var targetPath = `${targetDirectory}/${pageName}/state.dart`;
+  var targetPath = `${targetDirectory}/${snakeCaseName}/state.dart`;
   const template = `import 'package:get/get.dart';
 
 class ${pascalCaseName}State {
@@ -62,8 +60,8 @@ class ${pascalCaseName}State {
 
   return new Promise(async (resolve, reject) => {
 
-    if (isPrefixFileName) {
-      targetPath = `${targetDirectory}/${pageName}/${snakeCaseName}_state.dart`;
+    if (prefix.trim() !== "") {
+      targetPath = `${targetDirectory}/${prefix}/${prefix}_state.dart`;
     }
 
     writeFile(
@@ -81,13 +79,12 @@ class ${pascalCaseName}State {
   });
 }
 
-export function controllerTemplate(pageName: string, targetDirectory: string) {
+export function controllerTemplate(pageName: string, prefix: string, targetDirectory: string) {
   const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(pageName);
-  const isPrefixFileName = vscode.workspace.getConfiguration().get(configPrefixFileName);
-  var targetPath = `${targetDirectory}/${pageName}/controller.dart`;
-  if (isPrefixFileName) {
-    var importIndex = `import '${snakeCaseName}_index.dart';`;
+  var targetPath = `${targetDirectory}/${snakeCaseName}/controller.dart`;
+  if (prefix.trim() !== "") {
+    var importIndex = `import '${prefix}_index.dart';`;
   }else {
     var importIndex = `import 'index.dart';`;
   }
@@ -158,8 +155,8 @@ class ${pascalCaseName}Controller extends GetxController {
 
   return new Promise(async (resolve, reject) => {
 
-    if (isPrefixFileName) {
-      targetPath = `${targetDirectory}/${pageName}/${snakeCaseName}_controller.dart`;
+    if (prefix.trim() !== "") {
+      targetPath = `${targetDirectory}/${prefix}/${prefix}_controller.dart`;
     }
 
     writeFile(
@@ -177,13 +174,13 @@ class ${pascalCaseName}Controller extends GetxController {
   });
 }
 
-export function bindingsTemplate(pageName: string, targetDirectory: string) {
+export function bindingsTemplate(pageName: string, prefix: string, targetDirectory: string) {
   const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(pageName);
-  const isPrefixFileName = vscode.workspace.getConfiguration().get(configPrefixFileName);
-  var targetPath = `${targetDirectory}/${pageName}/bindings.dart`;
-  if (isPrefixFileName) {
-    var importController = `import '${snakeCaseName}_controller.dart';`;
+  
+  var targetPath = `${targetDirectory}/${snakeCaseName}/bindings.dart`;
+  if (prefix.trim() !== "") {
+    var importController = `import '${prefix}_controller.dart';`;
   }else {
     var importController = `import 'controller.dart';`;
   }
@@ -202,8 +199,8 @@ class ${pascalCaseName}Binding implements Bindings {
 
   return new Promise(async (resolve, reject) => {
     
-    if (isPrefixFileName) {
-      targetPath = `${targetDirectory}/${pageName}/${snakeCaseName}_bindings.dart`;
+    if (prefix.trim() !== "") {
+      targetPath = `${targetDirectory}/${prefix}/${prefix}_bindings.dart`;
     }
 
     writeFile(
@@ -221,13 +218,13 @@ class ${pascalCaseName}Binding implements Bindings {
   });
 }
 
-export function viewTemplate(pageName: string, targetDirectory: string) {
+export function viewTemplate(pageName: string, prefix: string, targetDirectory: string) {
   const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(pageName);
-  const isPrefixFileName = vscode.workspace.getConfiguration().get(configPrefixFileName);
-  var targetPath = `${targetDirectory}/${pageName}/view.dart`;
-  if (isPrefixFileName) {
-    var importIndex = `import '${snakeCaseName}_index.dart';`;
+  
+  var targetPath = `${targetDirectory}/${snakeCaseName}/view.dart`;
+  if (prefix.trim() !== "") {
+    var importIndex = `import '${prefix}_index.dart';`;
   }else {
     var importIndex = `import 'index.dart';`;
   }
@@ -254,8 +251,8 @@ class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
 
   return new Promise(async (resolve, reject) => {
 
-    if (isPrefixFileName) {
-      targetPath = `${targetDirectory}/${pageName}/${snakeCaseName}_view.dart`;
+    if (prefix.trim() !== "") {
+      targetPath = `${targetDirectory}/${prefix}/${prefix}_view.dart`;
     }
 
     writeFile(
@@ -273,16 +270,21 @@ class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
   });
 }
 
-export function widgetsTemplate(pageName: string, targetDirectory: string) {
+export function widgetsTemplate(pageName: string, prefix: string, targetDirectory: string) {
   const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(pageName);
-  const targetPath = `${targetDirectory}/${pageName}/widgets/widgets.dart`;
+  var targetPath = `${targetDirectory}/${snakeCaseName}/widgets/widgets.dart`;
   const template = `library widgets;
 
 export './hello.dart';
 `;
 
   return new Promise(async (resolve, reject) => {
+
+    if (prefix.trim() !== "") {
+      targetPath = `${targetDirectory}/${prefix}/widgets/widgets.dart`;
+    }
+
     writeFile(
       targetPath,
       template,
@@ -298,13 +300,13 @@ export './hello.dart';
   });
 }
 
-export function widgetsHelloTemplate(pageName: string, targetDirectory: string) {
+export function widgetsHelloTemplate(pageName: string, prefix: string, targetDirectory: string) {
   const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(pageName);
-  const targetPath = `${targetDirectory}/${pageName}/widgets/hello.dart`;
-  const isPrefixFileName = vscode.workspace.getConfiguration().get(configPrefixFileName);
-  if (isPrefixFileName) {
-    var importIndex = `import '../${snakeCaseName}_index.dart';`;
+  var targetPath = `${targetDirectory}/${snakeCaseName}/widgets/hello.dart`;
+  
+  if (prefix.trim() !== "") {
+    var importIndex = `import '../${prefix}_index.dart';`;
   }else {
     var importIndex = `import '../index.dart';`;
   }
@@ -325,6 +327,11 @@ class HelloWidget extends GetView<${pascalCaseName}Controller> {
 `;
 
   return new Promise(async (resolve, reject) => {
+    
+    if (prefix.trim() !== "") {
+      targetPath = `${targetDirectory}/${prefix}/widgets/hello.dart`;
+    }
+
     writeFile(
       targetPath,
       template,
