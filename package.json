@@ -42,7 +42,19 @@
           "when": "explorerResourceIsFolder"
         }
       ]
-    }
+    },
+    "configuration":[
+      {
+        "title": "Flutter GetX Generator - 猫哥",
+        "properties": {
+          "GetxTemplate.PrefixFileName":{
+            "type":"boolean",
+            "default": false,
+            "description": "使用类名作为文件名前缀"
+          }
+        }
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
