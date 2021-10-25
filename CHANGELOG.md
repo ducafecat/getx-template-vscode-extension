@@ -1,9 +1,5 @@
 # Change Log
 
-All notable changes to the "getx-template" extension will be documented in this file.
+## [1.1.4] 2021-10-25
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+- 修正 视图类、状态类、组件类 代码格式检查

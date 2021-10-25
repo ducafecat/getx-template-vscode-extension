@@ -14,18 +14,13 @@ export './view.dart';
 `;
 
   return new Promise(async (resolve, reject) => {
-    writeFile(
-      targetPath,
-      template,
-      "utf8",
-      (error) => {
-        if (error) {
-          reject(error);
-          return;
-        }
-        resolve;
+    writeFile(targetPath, template, "utf8", (error) => {
+      if (error) {
+        reject(error);
+        return;
       }
-    );
+      resolve;
+    });
   });
 }
 
@@ -38,24 +33,19 @@ export function stateTemplate(pageName: string, targetDirectory: string) {
 class ${pascalCaseName}State {
   // title
   final _title = "".obs;
-  set title(value) => this._title.value = value;
-  get title => this._title.value;
+  set title(value) => _title.value = value;
+  get title => _title.value;
 }
 `;
 
   return new Promise(async (resolve, reject) => {
-    writeFile(
-      targetPath,
-      template,
-      "utf8",
-      (error) => {
-        if (error) {
-          reject(error);
-          return;
-        }
-        resolve;
+    writeFile(targetPath, template, "utf8", (error) => {
+      if (error) {
+        reject(error);
+        return;
       }
-    );
+      resolve;
+    });
   });
 }
 
@@ -129,18 +119,13 @@ class ${pascalCaseName}Controller extends GetxController {
 `;
 
   return new Promise(async (resolve, reject) => {
-    writeFile(
-      targetPath,
-      template,
-      "utf8",
-      (error) => {
-        if (error) {
-          reject(error);
-          return;
-        }
-        resolve;
+    writeFile(targetPath, template, "utf8", (error) => {
+      if (error) {
+        reject(error);
+        return;
       }
-    );
+      resolve;
+    });
   });
 }
 
@@ -161,18 +146,13 @@ class ${pascalCaseName}Binding implements Bindings {
 `;
 
   return new Promise(async (resolve, reject) => {
-    writeFile(
-      targetPath,
-      template,
-      "utf8",
-      (error) => {
-        if (error) {
-          reject(error);
-          return;
-        }
-        resolve;
+    writeFile(targetPath, template, "utf8", (error) => {
+      if (error) {
+        reject(error);
+        return;
       }
-    );
+      resolve;
+    });
   });
 }
 
@@ -187,6 +167,8 @@ import 'index.dart';
 import 'widgets/widgets.dart';
 
 class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
+  const ${pascalCaseName}Page({Key? key}) : super(key: key);
+
   // 内容页
   Widget _buildView() {
     return HelloWidget();
@@ -202,18 +184,13 @@ class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
 `;
 
   return new Promise(async (resolve, reject) => {
-    writeFile(
-      targetPath,
-      template,
-      "utf8",
-      (error) => {
-        if (error) {
-          reject(error);
-          return;
-        }
-        resolve;
+    writeFile(targetPath, template, "utf8", (error) => {
+      if (error) {
+        reject(error);
+        return;
       }
-    );
+      resolve;
+    });
   });
 }
 
@@ -227,22 +204,20 @@ export './hello.dart';
 `;
 
   return new Promise(async (resolve, reject) => {
-    writeFile(
-      targetPath,
-      template,
-      "utf8",
-      (error) => {
-        if (error) {
-          reject(error);
-          return;
-        }
-        resolve;
+    writeFile(targetPath, template, "utf8", (error) => {
+      if (error) {
+        reject(error);
+        return;
       }
-    );
+      resolve;
+    });
   });
 }
 
-export function widgetsHelloTemplate(pageName: string, targetDirectory: string) {
+export function widgetsHelloTemplate(
+  pageName: string,
+  targetDirectory: string
+) {
   const pascalCaseName = changeCase.pascalCase(pageName.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(pageName.toLowerCase());
   const targetPath = `${targetDirectory}/${pageName}/widgets/hello.dart`;
@@ -253,6 +228,8 @@ import '../index.dart';
 
 /// hello
 class HelloWidget extends GetView<${pascalCaseName}Controller> {
+  const HelloWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -263,17 +240,12 @@ class HelloWidget extends GetView<${pascalCaseName}Controller> {
 `;
 
   return new Promise(async (resolve, reject) => {
-    writeFile(
-      targetPath,
-      template,
-      "utf8",
-      (error) => {
-        if (error) {
-          reject(error);
-          return;
-        }
-        resolve;
+    writeFile(targetPath, template, "utf8", (error) => {
+      if (error) {
+        reject(error);
+        return;
       }
-    );
+      resolve;
+    });
   });
 }
