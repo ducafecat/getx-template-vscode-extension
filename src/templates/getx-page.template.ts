@@ -176,10 +176,14 @@ class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: _buildView(),
-      ),
+    return GetBuilder<${pascalCaseName}Controller>(
+      builder: (_) {
+        return Scaffold(
+          body: SafeArea(
+            child: _buildView(),
+          ),
+        );
+      },
     );
   }
 }
