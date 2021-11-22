@@ -171,13 +171,15 @@ class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
 
   // 内容页
   Widget _buildView() {
-    return HelloWidget();
+    return const HelloWidget();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildView(),
+      body: SafeArea(
+        child: _buildView(),
+      ),
     );
   }
 }
