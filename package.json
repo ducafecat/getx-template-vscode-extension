@@ -31,7 +31,11 @@
     "commands": [
       {
         "command": "extension.new-getx-page",
-        "title": "Getx: New Page"
+        "title": "Getx: Full Page"
+      },
+      {
+        "command": "extension.new-getx-getbuilder-page",
+        "title": "Getx: GetBuilder Page"
       }
     ],
     "menus": {
