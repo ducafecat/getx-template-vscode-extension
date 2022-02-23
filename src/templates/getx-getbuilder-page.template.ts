@@ -86,7 +86,6 @@ import 'index.dart';
 class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
   const ${pascalCaseName}Page({Key? key}) : super(key: key);
 
-  // 内容页
   Widget _buildView() {
     return Container();
   }

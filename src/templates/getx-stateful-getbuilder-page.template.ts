@@ -105,7 +105,6 @@ class _${pascalCaseName}PageState extends State<${pascalCaseName}Page>
 class _${pascalCaseName}ViewGetX extends GetView<${pascalCaseName}Controller> {
   const _${pascalCaseName}ViewGetX({Key? key}) : super(key: key);
 
-  // 内容页
   Widget _buildView() {
     return Container();
   }

@@ -10,8 +10,38 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 
 ![](README/vscode-getx.gif)
 
-## Flutter 技术博客
+## 功能
 
-https://ducafecat.tech/
+![](README/2022-02-23-18-42-12.png)
 
-## 微信群 ducafecat
+### 生成 完整的代码
+
+![](README/2022-02-23-18-45-12.png)
+
+这种方式，包含了全部的 controller、view、widgets、bindings、state 拆分的很细致
+
+### 生成 GetBuilder + GetView 的代码
+
+![](README/2022-02-23-18-46-05.png)
+
+只有 controller、view 两个文件
+
+推荐用这种，简单快速，自带自动释放控制器，GetBuilder 方式对性能也好。
+
+### 生成 StatefulWidget + GetBuilder + GetView 的代码
+
+这种是在 GetBuilder + GetView 的基础上，再加入了 StatefulWidget 包裹，比如你需要 mixin 一些功能的时候需要（AutomaticKeepAliveClientMixin、wantKeepAlive）。
+
+---
+
+© 猫哥
+
+- 微信 ducafecat
+
+- [博客 ducafecat.tech](https://ducafecat.tech/)
+
+- [github](https://github.com/ducafecat)
+
+- [bilibili](https://space.bilibili.com/404904528)
+
+![订阅号](https://ducafecat.tech/img/banner-gzh.png)

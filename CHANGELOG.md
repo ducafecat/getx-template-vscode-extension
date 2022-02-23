@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.1.11] 2022-02-23
+
+- fix readme
+- fix annotation
+
 ## [1.1.10] 2022-02-23
 
 - fix GetBuilder Page tag name
