@@ -2,7 +2,7 @@
   "name": "getx-template",
   "displayName": "Flutter GetX Generator - 猫哥",
   "description": "It supports the getx library and provides effective creation of business modules for Flutter applications.",
-  "version": "1.1.8",
+  "version": "1.1.10",
   "engines": {
     "vscode": "^1.56.0"
   },
@@ -36,12 +36,26 @@
       {
         "command": "extension.new-getx-getbuilder-page",
         "title": "Getx: GetBuilder Page"
+      },
+      {
+        "command": "extension.new-getx-stateful-getbuilder-page",
+        "title": "Getx: StatefulWidget + GetBuilder Page"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "command": "extension.new-getx-page",
+          "group": "blocGroup@1",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.new-getx-getbuilder-page",
+          "group": "blocGroup@1",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.new-getx-stateful-getbuilder-page",
           "group": "blocGroup@1",
           "when": "explorerResourceIsFolder"
         }

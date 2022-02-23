@@ -7,9 +7,9 @@ import {
   controllerTemplate,
   indexTemplate,
   viewTemplate,
-} from "../templates/getx-getbuilder-page.template";
+} from "../templates/getx-stateful-getbuilder-page.template";
 
-export const newGetxGetBuilderPage = async (uri: Uri) => {
+export const newGetxStatefulWidgetGetBuilderPage = async (uri: Uri) => {
   console.log(uri);
   const pageName = await promptForPageName();
   if (_.isNil(pageName) || pageName.trim() === "") {

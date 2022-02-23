@@ -83,8 +83,27 @@ import 'package:get/get.dart';
 
 import 'index.dart';
 
-class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
+class ${pascalCaseName}Page extends StatefulWidget {
   const ${pascalCaseName}Page({Key? key}) : super(key: key);
+
+  @override
+  _${pascalCaseName}PageState createState() => _${pascalCaseName}PageState();
+}
+
+class _${pascalCaseName}PageState extends State<${pascalCaseName}Page>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+    return const _${pascalCaseName}ViewGetX();
+  }
+}
+
+class _${pascalCaseName}ViewGetX extends GetView<${pascalCaseName}Controller> {
+  const _${pascalCaseName}ViewGetX({Key? key}) : super(key: key);
 
   // 内容页
   Widget _buildView() {

@@ -1,9 +1,22 @@
 # Change Log
 
+## [1.1.10] 2022-02-23
+
+- fix GetBuilder Page tag name
+- add StatefulWidget + GetBuilder Page
+
+## [1.1.9] 2022-02-22
+
+- add GetBuilder Page
+
+## [1.1.8] 2022-02-22
+
+- add annotation
+
 ## [1.1.7] 2021-11-23
 
-- 默认 GetBuilder
-- 去掉注释
+- add GetBuilder
+- rm annotation
 
 ## [1.1.6] 2021-11-23
 
@@ -11,8 +24,8 @@
 
 ## [1.1.5] 2021-11-22
 
-- 加入 SafeArea
+- add SafeArea
 
 ## [1.1.4] 2021-10-25
 
-- 修正 视图类、状态类、组件类 代码格式检查
+- fix lint
