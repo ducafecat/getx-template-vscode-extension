@@ -1,4 +1,4 @@
-# getx-template
+# GetX 项目代码生成工具
 
 这个插件是和 [flutter_ducafecat_news_getx](https://github.com/ducafecat/flutter_ducafecat_news_getx) 配套使用的
 
