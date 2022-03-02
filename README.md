@@ -2,6 +2,20 @@
 
 <img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/ducafecat-logo-white.png" width="30%" />
 
+© 猫哥
+
+- 微信 ducafecat
+
+- [博客 ducafecat.tech](https://ducafecat.tech/)
+
+- [github](https://github.com/ducafecat)
+
+- [bilibili](https://space.bilibili.com/404904528)
+
+![订阅号](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165922.png)
+
+---
+
 这个插件是和 [flutter_ducafecat_news_getx](https://github.com/ducafecat/flutter_ducafecat_news_getx) 配套使用的
 
 - github 仓库地址
@@ -17,11 +31,13 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 5. 生成 `StatefulWidget + GetBuilder + GetView` 的代码
 6. 生成 `controller、view、widgets、bindings、state、index ` 完整的代码
 
+---
+
 ## 使用说明
 
-## 功能
-
 <img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165447.png" width="30%" />
+
+> 目录上右键菜单操作
 
 ### 1. 根据 x3 图片自动生成 x1 x2 图片
 
@@ -44,6 +60,8 @@ assets/svgs/
 
 <img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165742.png" width="30%" />
 
+---
+
 ### 2. 生成 `图片` `svg` 常量列表 `files.txt`
 
 点击 `Assets: Images x1 x2 Generate` 同时会生成常量列表文件 `files.txt`
@@ -59,11 +77,13 @@ assets/svgs/files.txt
 
 - 生成 `files.txt` 常量列表
 
-<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302233654.png" width="30%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302233654.png" width="70%" />
 
 - 如果你把 `svg` 放到 `assets/svgs` 这个目录下，也会生成常量列表
 
-<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302234502.png" width="30%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302234502.png" width="70%" />
+
+---
 
 ### 3. 生成规范目录
 
@@ -87,6 +107,8 @@ assets/svgs/files.txt
 - pages
   - index.dart
 ```
+
+---
 
 ### 4. 生成 GetBuilder + GetView 的代码
 
@@ -133,6 +155,8 @@ class AbcPage extends GetView<AbcController> {
 > 采用 `GetBuilder` 手动、布局控制刷新，性能好，推荐这种。
 > 注意看这个 `id` 属性，需要全局唯一
 
+代码清单:
+
 - controller
 
 ```dart
@@ -172,6 +196,8 @@ class AbcController extends GetxController {
 
 > 常用的生命周期函数也生成了，按需要放开注释
 > `update(["abc"]);` 采用这种方式出发 `GetBuilder` 的 `id`属性，进行控制刷新
+
+---
 
 ### 5. 生成 StatefulWidget + GetBuilder + GetView 的代码
 
@@ -272,6 +298,8 @@ class _MyViewGetX extends GetView<MyController> {
 
 > 可以看到 `GetX` 和 `StatefulWidget` 的优雅的结合方式，就是作为组件在 `StatefulWidget.build` 时创建
 > 并不是用了 `GetX` 就不要 `StatefulWidget` 了，很多 `Mixin` 还是需要的
+
+---
 
 ### 6. 生成 完整的代码
 
