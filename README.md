@@ -85,9 +85,9 @@ assets/svgs/files.txt
 
 ---
 
-### 3. 生成规范目录
+### 3. 生成规范 `common` 目录
 
-<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302174919.png" width="30%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220303003904.png" width="30%" />
 
 <img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302094553.png" width="30%" />
 
