@@ -1,11 +1,8 @@
 # Change Log
 
-## [1.1.13] 2022-03-2
+## [1.2.1] 2022-03-2
 
 - add Assets: Images x1 x2 Generate
-
-## [1.1.12] 2022-03-2
-
 - add create common pages directory
 
 ## [1.1.11] 2022-02-23

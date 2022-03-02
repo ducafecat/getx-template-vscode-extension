@@ -2,7 +2,7 @@
   "name": "getx-template",
   "displayName": "Flutter GetX Generator - 猫哥",
   "description": "It supports the getx library and provides effective creation of business modules for Flutter applications.",
-  "version": "1.1.13",
+  "version": "1.2.1",
   "engines": {
     "vscode": "^1.56.0"
   },

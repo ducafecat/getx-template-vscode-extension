@@ -13,10 +13,6 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 
 ## 使用说明
 
-### 鼠标右键你的视图目录，输入名称生成代码
-
-![](README/vscode-getx.gif)
-
 ## 功能
 
 ![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165447.png)
@@ -36,6 +32,8 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 ![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165742.png)
 
 ### 2. 生成规范目录
+
+![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302174919.png)
 
 ![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302094553.png)
 
@@ -58,6 +56,8 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 
 ### 3. 生成 GetBuilder + GetView 的代码
 
+![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302175006.png)
+
 ![](README/2022-02-23-18-46-05.png)
 
 只有 controller、view 两个文件
@@ -66,9 +66,15 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 
 ### 4. 生成 StatefulWidget + GetBuilder + GetView 的代码
 
+![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302175042.png)
+
 这种是在 GetBuilder + GetView 的基础上，再加入了 StatefulWidget 包裹，比如你需要 mixin 一些功能的时候需要（AutomaticKeepAliveClientMixin、wantKeepAlive）。
 
 ### 5. 生成 完整的代码
+
+![](README/vscode-getx.gif)
+
+鼠标右键你的视图目录，输入名称生成代码
 
 ![](README/2022-02-23-18-45-12.png)
 

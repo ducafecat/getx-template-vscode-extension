@@ -6,6 +6,8 @@ import {
   readdirSync,
   statSync,
   existsSync,
+  readdir,
+  stat,
   mkdirSync,
   lstatSync,
   writeFile,
@@ -28,6 +30,15 @@ export const imageGenerate = async (uri: Uri) => {
     // }
 
     // await generateCode("common", targetDirectory);
+
+    // let fileList: string[] = [];
+    // fileDisplay(targetDirectory, fileList);
+
+    // for (const filePath of fileList) {
+    //   console.log(filePath);
+    // }
+
+    /**/
     walkSync(targetDirectory, async (filePath: string, stat: object) => {
       var imgPath = path.parse(filePath);
       let lowExt = imgPath.ext.toLowerCase();
@@ -53,19 +64,12 @@ export const imageGenerate = async (uri: Uri) => {
         createDirectory(`${workDir}/2.0x`);
       }
 
-      await scaleImage(`${workDir}/${imgPath.base}`, filePath, 0.25);
-      await scaleImage(`${workDir}/2.0x/${imgPath.base}`, filePath, 0.5);
-
-      // if (
-      //   !filePath.endsWith(".jpeg") &&
-      //   !filePath.endsWith(".jpg") &&
-      //   !filePath.endsWith(".png") &&
-      //   filePath.indexOf("3.0x") < 0
-      // ) {
-      //   return;
-      // }
-
-      // console.log(filePath, stat);
+      if (!existsSync(`${workDir}/${imgPath.base}`)) {
+        await scaleImage(`${workDir}/${imgPath.base}`, filePath, 0.25);
+      }
+      if (!existsSync(`${workDir}/2.0x/${imgPath.base}`)) {
+        await scaleImage(`${workDir}/2.0x/${imgPath.base}`, filePath, 0.5);
+      }
     });
 
     window.showInformationMessage(`Successfully Generated Images Directory`);
@@ -76,6 +80,37 @@ export const imageGenerate = async (uri: Uri) => {
     );
   }
 };
+
+function fileDisplay(filePath: string, fileList: string[]) {
+  //根据文件路径读取文件，返回文件列表
+  readdir(filePath, function (err, files) {
+    if (err) {
+      console.warn(err);
+    } else {
+      //遍历读取到的文件列表
+      files.forEach(function (filename) {
+        //获取当前文件的绝对路径
+        var filedir = path.join(filePath, filename);
+        //根据文件路径获取文件信息，返回一个fs.Stats对象
+        stat(filedir, function (eror, stats) {
+          if (eror) {
+            console.warn("获取文件stats失败");
+          } else {
+            var isFile = stats.isFile(); //是文件
+            var isDir = stats.isDirectory(); //是文件夹
+            if (isFile) {
+              // console.log(filedir);
+              fileList.push(filedir);
+            }
+            if (isDir) {
+              fileDisplay(filedir, fileList); //递归，如果是文件夹，就继续遍历该文件夹下面的文件
+            }
+          }
+        });
+      });
+    }
+  });
+}
 
 function walkSync(currentDirPath: string, callback: Function) {
   readdirSync(currentDirPath).forEach(function (name) {
