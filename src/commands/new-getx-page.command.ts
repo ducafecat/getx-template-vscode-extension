@@ -1,6 +1,6 @@
 import * as _ from "lodash";
 import * as changeCase from "change-case";
-import * as mkdirp from "mkdirp";
+import mkdirp from "mkdirp";
 import { InputBoxOptions, OpenDialogOptions, Uri, window } from "vscode";
 import { existsSync, lstatSync, writeFile } from "fs";
 import {
@@ -63,7 +63,7 @@ async function promptForTargetDirectory(): Promise<string | undefined> {
 
 function createDirectory(targetDirectory: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    mkdirp(targetDirectory, (error) => {
+    mkdirp(targetDirectory, (error: any) => {
       if (error) {
         return reject(error);
       }

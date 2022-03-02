@@ -4,6 +4,13 @@
 
 https://github.com/ducafecat/flutter_ducafecat_news_getx
 
+## 功能
+
+- 根据 x3 图片自动生成 x1 x2 图片
+- 生成规范目录
+- 生成 GetBuilder + GetView 的代码
+- 生成 完整的代码
+
 ## 使用说明
 
 ### 鼠标右键你的视图目录，输入名称生成代码
@@ -12,9 +19,23 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 
 ## 功能
 
-![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302094420.png)
+![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165447.png)
 
-### 生成规范目录
+### 1. 根据 x3 图片自动生成 x1 x2 图片
+
+- 准备好你的 `3.0x` 图片
+
+![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165624.png)
+
+- 右键点击菜单 `Assets: Images x1 x2 Generate`
+
+![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165708.png)
+
+- 成功生成了 `2.0x` 文件夹，和 `1x` 的图片
+
+![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165742.png)
+
+### 2. 生成规范目录
 
 ![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302094553.png)
 
@@ -35,13 +56,7 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
   - index.dart
 ```
 
-### 生成 完整的代码
-
-![](README/2022-02-23-18-45-12.png)
-
-这种方式，包含了全部的 controller、view、widgets、bindings、state 拆分的很细致
-
-### 生成 GetBuilder + GetView 的代码
+### 3. 生成 GetBuilder + GetView 的代码
 
 ![](README/2022-02-23-18-46-05.png)
 
@@ -49,9 +64,15 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 
 推荐用这种，简单快速，自带自动释放控制器，GetBuilder 方式对性能也好。
 
-### 生成 StatefulWidget + GetBuilder + GetView 的代码
+### 4. 生成 StatefulWidget + GetBuilder + GetView 的代码
 
 这种是在 GetBuilder + GetView 的基础上，再加入了 StatefulWidget 包裹，比如你需要 mixin 一些功能的时候需要（AutomaticKeepAliveClientMixin、wantKeepAlive）。
+
+### 5. 生成 完整的代码
+
+![](README/2022-02-23-18-45-12.png)
+
+这种方式，包含了全部的 controller、view、widgets、bindings、state 拆分的很细致
 
 ---
 
@@ -65,4 +86,4 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 
 - [bilibili](https://space.bilibili.com/404904528)
 
-![订阅号](https://ducafecat.tech/img/banner-gzh.png)
+![订阅号](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165922.png)

@@ -2,7 +2,7 @@
   "name": "getx-template",
   "displayName": "Flutter GetX Generator - 猫哥",
   "description": "It supports the getx library and provides effective creation of business modules for Flutter applications.",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "engines": {
     "vscode": "^1.56.0"
   },
@@ -30,12 +30,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.new-getx-create-directory",
-        "title": "Getx: Create Common Directory"
+        "command": "extension.new-getx-assets-generate",
+        "title": "Assets: Images x1 x2 Generate"
       },
       {
-        "command": "extension.new-getx-page",
-        "title": "Getx: Full Page"
+        "command": "extension.new-getx-create-directory",
+        "title": "Getx: Create Common Directory"
       },
       {
         "command": "extension.new-getx-getbuilder-page",
@@ -44,17 +44,21 @@
       {
         "command": "extension.new-getx-stateful-getbuilder-page",
         "title": "Getx: StatefulWidget + GetBuilder Page"
+      },
+      {
+        "command": "extension.new-getx-page",
+        "title": "Getx: Full Page"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "extension.new-getx-create-directory",
+          "command": "extension.new-getx-assets-generate",
           "group": "blocGroup@1",
           "when": "explorerResourceIsFolder"
         },
         {
-          "command": "extension.new-getx-page",
+          "command": "extension.new-getx-create-directory",
           "group": "blocGroup@1",
           "when": "explorerResourceIsFolder"
         },
@@ -65,6 +69,11 @@
         },
         {
           "command": "extension.new-getx-stateful-getbuilder-page",
+          "group": "blocGroup@1",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.new-getx-page",
           "group": "blocGroup@1",
           "when": "explorerResourceIsFolder"
         }
@@ -84,28 +93,29 @@
     "vsce-package": "vsce package"
   },
   "devDependencies": {
-    "@types/vscode": "^1.56.0",
+    "@types/change-case": "^2.3.1",
     "@types/glob": "^7.1.3",
+    "@types/js-yaml": "^3.12.1",
+    "@types/lodash": "^4.14.121",
+    "@types/mkdirp": "^0.5.2",
     "@types/mocha": "^8.0.4",
     "@types/node": "14.x",
-    "@types/lodash": "^4.14.121",
-    "@types/change-case": "^2.3.1",
-    "@types/js-yaml": "^3.12.1",
-    "@types/mkdirp": "^0.5.2",
     "@types/semver": "^6.0.2",
-    "eslint": "^7.19.0",
+    "@types/vscode": "^1.56.0",
     "@typescript-eslint/eslint-plugin": "^4.14.1",
     "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.19.0",
     "glob": "^7.1.6",
     "mocha": "^8.2.1",
+    "ts-loader": "^8.0.14",
     "typescript": "^4.1.3",
     "vscode-test": "^1.5.0",
-    "ts-loader": "^8.0.14",
     "webpack": "^5.19.0",
     "webpack-cli": "^4.4.0"
   },
   "dependencies": {
     "change-case": "^3.1.0",
+    "jimp": "^0.16.1",
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.19",
     "mkdirp": "^0.5.1",
