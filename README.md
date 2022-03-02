@@ -19,7 +19,14 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 
 ### 1. 根据 x3 图片自动生成 x1 x2 图片
 
-- 准备好你的 `3.0x` 图片
+请讲你的 `图片`、`Svg` 放到目录
+
+```
+assets/images/
+assets/svgs/
+```
+
+- 准备好你的 `assets/images/3.0x` 图片
 
 ![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165624.png)
 
@@ -31,9 +38,21 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 
 ![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165742.png)
 
+- 生成 `files.txt` 常量列表
+
+![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302233654.png)
+
+- 如果你把 `svg` 放到 `assets/svgs` 这个目录下，也会生成常量列表
+
+![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302234502.png)
+
 ### 2. 生成规范目录
 
+图片放到 `assets/images/`
+
 ![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302174919.png)
+
+Svg 放到 `assets/svgs/`
 
 ![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302094553.png)
 
