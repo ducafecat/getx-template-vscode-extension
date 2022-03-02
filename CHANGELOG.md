@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.1.12] 2022-03-2
+
+- add create common pages directory
+
 ## [1.1.11] 2022-02-23
 
 - fix readme

@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
+import { newGetxCommonDirectory } from "./commands/new-getx-create-common-directory.command";
 import { newGetxPage } from "./commands/new-getx-page.command";
 import { newGetxGetBuilderPage } from "./commands/new-getx-getbuilder-page.command";
 import { newGetxStatefulWidgetGetBuilderPage } from "./commands/new-getx-stateful-getbuilder-page.command";
@@ -26,6 +27,10 @@ export function activate(context: vscode.ExtensionContext) {
   // context.subscriptions.push(disposable);
 
   context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "extension.new-getx-create-directory",
+      newGetxCommonDirectory
+    ),
     vscode.commands.registerCommand("extension.new-getx-page", newGetxPage),
     vscode.commands.registerCommand(
       "extension.new-getx-getbuilder-page",

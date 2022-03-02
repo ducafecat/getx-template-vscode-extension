@@ -12,7 +12,28 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 
 ## 功能
 
-![](README/2022-02-23-18-42-12.png)
+![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302094420.png)
+
+### 生成规范目录
+
+![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302094553.png)
+
+自动创建开发目录
+
+```
+- common
+  - api
+    - index.dart
+  - i18n
+  - models
+  - routers
+  - services
+  - style
+  - utils
+  - widgets
+- pages
+  - index.dart
+```
 
 ### 生成 完整的代码
 
