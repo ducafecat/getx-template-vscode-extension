@@ -87,7 +87,9 @@ class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
   const ${pascalCaseName}Page({Key? key}) : super(key: key);
 
   Widget _buildView() {
-    return Container();
+    return const Center(
+      child: Text("${pascalCaseName}Page"),
+    );
   }
 
   @override
