@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.2.8] 2022-03-11
+
+- add directory `common/component`
+
 ## [1.2.5] 2022-03-2
 
 - add Assets: Images x1 x2 Generate
