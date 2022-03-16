@@ -157,6 +157,7 @@ class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
     return GetBuilder<${pascalCaseName}Controller>(
       builder: (_) {
         return Scaffold(
+          appBar: AppBar(title: const Text("${snakeCaseName}")),
           body: SafeArea(
             child: _buildView(),
           ),
