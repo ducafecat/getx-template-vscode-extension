@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.2.9] 2022-03-16
+
+- add `common/index.dart`
+
 ## [1.2.8] 2022-03-11
 
 - add directory `common/component`

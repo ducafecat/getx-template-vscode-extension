@@ -3,7 +3,10 @@ import * as changeCase from "change-case";
 import mkdirp from "mkdirp";
 import { InputBoxOptions, OpenDialogOptions, Uri, window } from "vscode";
 import { existsSync, lstatSync, writeFile } from "fs";
-import { indexTemplate } from "../templates/getx-create-common-directory.template";
+import {
+  indexTemplate,
+  commonIndexTemplate,
+} from "../templates/getx-create-common-directory.template";
 
 export const newGetxCommonDirectory = async (uri: Uri) => {
   console.log(uri);
@@ -93,6 +96,7 @@ async function generateCode(pageName: string, targetDirectory: string) {
       indexTemplate("values", pageDirectoryPath),
       indexTemplate("widgets", pageDirectoryPath),
       indexTemplate("component", pageDirectoryPath),
+      commonIndexTemplate(pageDirectoryPath),
     ]);
   }
 }
