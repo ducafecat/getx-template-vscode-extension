@@ -95,7 +95,7 @@ async function generateCode(pageName: string, targetDirectory: string) {
       indexTemplate("utils", pageDirectoryPath),
       indexTemplate("values", pageDirectoryPath),
       indexTemplate("widgets", pageDirectoryPath),
-      indexTemplate("component", pageDirectoryPath),
+      indexTemplate("components", pageDirectoryPath),
       commonIndexTemplate(pageDirectoryPath),
     ]);
   }

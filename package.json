@@ -2,7 +2,7 @@
   "name": "getx-template",
   "displayName": "Flutter GetX Generator - 猫哥",
   "description": "It supports the getx library and provides effective creation of business modules for Flutter applications.",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "engines": {
     "vscode": "^1.56.0"
   },
@@ -90,7 +90,8 @@
     "pretest": "yarn run test-compile && yarn run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
-    "vsce-package": "vsce package"
+    "vsce-package": "vsce package",
+    "publish": "vsce publish"
   },
   "devDependencies": {
     "@types/change-case": "^2.3.1",
