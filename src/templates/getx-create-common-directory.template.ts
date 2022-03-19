@@ -28,7 +28,7 @@ export function commonIndexTemplate(targetDirectory: string) {
   const template = `library common;
 
 export 'api/index.dart';
-export 'component/index.dart';
+export 'components/index.dart';
 export 'extension/index.dart';
 export 'i18n/index.dart';
 export 'models/index.dart';
