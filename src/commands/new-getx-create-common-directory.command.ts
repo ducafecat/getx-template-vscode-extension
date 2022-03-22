@@ -83,7 +83,8 @@ async function generateCode(pageName: string, targetDirectory: string) {
     await createDirectory(`${pageDirectoryPath}/utils`);
     await createDirectory(`${pageDirectoryPath}/values`);
     await createDirectory(`${pageDirectoryPath}/widgets`);
-    await createDirectory(`${pageDirectoryPath}/component`);
+    await createDirectory(`${pageDirectoryPath}/components`);
+    await createDirectory(`${pageDirectoryPath}/extension`);
 
     await Promise.all([
       indexTemplate("i18n", pageDirectoryPath),
@@ -96,6 +97,7 @@ async function generateCode(pageName: string, targetDirectory: string) {
       indexTemplate("values", pageDirectoryPath),
       indexTemplate("widgets", pageDirectoryPath),
       indexTemplate("components", pageDirectoryPath),
+      indexTemplate("extension", pageDirectoryPath),
       commonIndexTemplate(pageDirectoryPath),
     ]);
   }
