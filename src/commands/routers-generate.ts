@@ -80,6 +80,11 @@ function routeNamesGenerate(targetDirectory: string) {
       return;
     }
 
+    // 排除 lib/pages/index.dart
+    if (relativePath.indexOf("lib/pages/index.dart") !== -1) {
+      return;
+    }
+
     // 名称
     let arrFilePath = relativePath
       .replace("lib/pages/", "")
