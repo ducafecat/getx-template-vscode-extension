@@ -30,7 +30,7 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 4. 生成 `GetBuilder + GetView` 的代码
 5. 生成 `StatefulWidget + GetBuilder + GetView` 的代码
 6. 生成 `controller、view、widgets、bindings、state、index ` 完整的代码
-7. 生成 路由声明定义文件 `common/route/names.txt` `common/route/pages.txt` `pages/index.txt`
+7. 生成 路由声明定义文件 `common/routers/names.txt` `common/routers/pages.txt` `pages/index.txt`
 
 ---
 
@@ -468,7 +468,7 @@ export './hello.dart';
 
 ### 7. 生成 路由声明定义文件
 
-`common/route/names.txt` `common/route/pages.txt` `pages/index.txt`
+`common/routers/names.txt` `common/routers/pages.txt` `pages/index.txt`
 
 ![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220323162715.png)
 

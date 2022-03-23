@@ -94,11 +94,11 @@ function routeNamesGenerate(targetDirectory: string) {
     // 删除文件
     if (isFirst === true) {
       isFirst = false;
-      if (existsSync(`${rootPath}/lib/common/routes/names.txt`)) {
-        rmSync(`${rootPath}/lib/common/routes/names.txt`);
+      if (existsSync(`${rootPath}/lib/common/routers/names.txt`)) {
+        rmSync(`${rootPath}/lib/common/routers/names.txt`);
       }
-      if (existsSync(`${rootPath}/lib/common/routes/pages.txt`)) {
-        rmSync(`${rootPath}/lib/common/routes/pages.txt`);
+      if (existsSync(`${rootPath}/lib/common/routers/pages.txt`)) {
+        rmSync(`${rootPath}/lib/common/routers/pages.txt`);
       }
       if (existsSync(`${rootPath}/lib/pages/index.txt`)) {
         rmSync(`${rootPath}/lib/pages/index.txt`);
@@ -106,12 +106,12 @@ function routeNamesGenerate(targetDirectory: string) {
     }
     // 写入列表
     appendFileSync(
-      `${rootPath}/lib/common/routes/names.txt`,
+      `${rootPath}/lib/common/routers/names.txt`,
       `static const ${camelCaseName} = '/${snakeCaseName}';\r\n`,
       "utf8"
     );
     appendFileSync(
-      `${rootPath}/lib/common/routes/pages.txt`,
+      `${rootPath}/lib/common/routers/pages.txt`,
       `
       GetPage(
         name: RouteNames.${camelCaseName},
