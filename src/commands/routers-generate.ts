@@ -28,7 +28,6 @@ export const routersGenerate = async (uri: Uri) => {
 
   try {
     routeNamesGenerate(targetDirectory);
-    routePagesGenerate(targetDirectory);
 
     window.showInformationMessage(
       `Successfully Generated Getx Routers Text File`
@@ -92,9 +91,14 @@ function routeNamesGenerate(targetDirectory: string) {
       .split("/");
     const modalFileName = arrFilePath.join("_");
     const filePathName = arrFilePath.join("/");
-    const pascalCaseName = changeCase.pascalCase(modalFileName);
+    // const pascalCaseName = changeCase.pascalCase(modalFileName);
     const snakeCaseName = changeCase.snakeCase(modalFileName);
     const camelCaseName = changeCase.camelCase(modalFileName);
+
+    // 文件名
+    const pascalCaseName = changeCase.pascalCase(
+      arrFilePath[arrFilePath.length - 1]
+    );
 
     // 删除文件
     if (isFirst === true) {
@@ -127,52 +131,6 @@ function routeNamesGenerate(targetDirectory: string) {
     appendFileSync(
       `${rootPath}/lib/pages/index.txt`,
       `export '${filePathName}/index.dart';\r\n`,
-      "utf8"
-    );
-  });
-}
-
-// 生成 route pages
-function routePagesGenerate(targetDirectory: string) {
-  let isFirst = true;
-  walkSync(targetDirectory, async (filePath: string, stat: object) => {
-    // 根目录
-    let rootPath = getRootPath(undefined);
-
-    // 相对路径
-    let relativePath = vscode.workspace.asRelativePath(filePath);
-
-    // 检查 lib/pages
-    if (relativePath.indexOf("lib/pages/") === -1) {
-      return;
-    }
-
-    // 检查 index.dart
-    if (relativePath.indexOf("/index.dart") === -1) {
-      return;
-    }
-
-    // 名称
-    let arrFilePath = relativePath
-      .replace("lib/pages/", "")
-      .replace("/index.dart", "")
-      .split("/");
-    let modalFileName = arrFilePath.join("_");
-    // const pascalCaseName = changeCase.pascalCase(modalFileName);
-    const snakeCaseName = changeCase.snakeCase(modalFileName);
-    const camelCaseName = changeCase.camelCase(modalFileName);
-
-    // 删除文件
-    if (isFirst === true) {
-      isFirst = false;
-      if (existsSync(`${rootPath}/lib/common/routes/names.txt`)) {
-        rmSync(`${rootPath}/lib/common/routes/names.txt`);
-      }
-    }
-    // 写入列表
-    appendFileSync(
-      `${rootPath}/lib/common/routes/names.txt`,
-      `static const ${camelCaseName} = '/${snakeCaseName}';\r\n`,
       "utf8"
     );
   });
