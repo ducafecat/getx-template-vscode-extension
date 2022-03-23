@@ -30,12 +30,13 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 4. 生成 `GetBuilder + GetView` 的代码
 5. 生成 `StatefulWidget + GetBuilder + GetView` 的代码
 6. 生成 `controller、view、widgets、bindings、state、index ` 完整的代码
+7. 生成 路由声明定义文件 `common/route/names.txt` `common/route/pages.txt` `pages/index.txt`
 
 ---
 
 ## 使用说明
 
-<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165447.png" width="30%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220323162407.png" width="30%" />
 
 > 目录上右键菜单操作
 
@@ -464,6 +465,72 @@ library widgets;
 export './hello.dart';
 
 ```
+
+### 7. 生成 路由声明定义文件
+
+`common/route/names.txt` `common/route/pages.txt` `pages/index.txt`
+
+![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220323162715.png)
+
+lib/common/routes/names.txt
+
+```dart
+static const application = '/application';
+static const category = '/category';
+static const frameNotfound = '/frame_notfound';
+static const frameSignIn = '/frame_sign_in';
+static const frameSignUp = '/frame_sign_up';
+static const frameWelcome = '/frame_welcome';
+static const main = '/main';
+```
+
+lib/common/routes/pages.txt
+
+```dart
+
+      GetPage(
+        name: RouteNames.application,
+        page: () => const ApplicationPage(),
+      ),
+      GetPage(
+        name: RouteNames.category,
+        page: () => const CategoryPage(),
+      ),
+      GetPage(
+        name: RouteNames.frameNotfound,
+        page: () => const FrameNotfoundPage(),
+      ),
+      GetPage(
+        name: RouteNames.frameSignIn,
+        page: () => const FrameSignInPage(),
+      ),
+      GetPage(
+        name: RouteNames.frameSignUp,
+        page: () => const FrameSignUpPage(),
+      ),
+      GetPage(
+        name: RouteNames.frameWelcome,
+        page: () => const FrameWelcomePage(),
+      ),
+      GetPage(
+        name: RouteNames.main,
+        page: () => const MainPage(),
+      ),
+```
+
+lib/pages/index.txt
+
+```dart
+export 'application/index.dart';
+export 'category/index.dart';
+export 'frame/notfound/index.dart';
+export 'frame/sign_in/index.dart';
+export 'frame/sign_up/index.dart';
+export 'frame/welcome/index.dart';
+export 'main/index.dart';
+```
+
+> 好了 拿去复制吧，这样不用自己手写了！
 
 ---
 

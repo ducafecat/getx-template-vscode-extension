@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.2.15] 2022-03-23
+
+- add router names generate
+
 ## [1.2.10] 2022-03-16
 
 - add `common/index.dart`

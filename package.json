@@ -2,7 +2,7 @@
   "name": "getx-template",
   "displayName": "Flutter GetX Generator - 猫哥",
   "description": "It supports the getx library and provides effective creation of business modules for Flutter applications.",
-  "version": "1.2.13",
+  "version": "1.2.15",
   "engines": {
     "vscode": "^1.56.0"
   },
@@ -31,7 +31,11 @@
     "commands": [
       {
         "command": "extension.new-getx-assets-generate",
-        "title": "Assets: Images x1 x2 Generate"
+        "title": "☆ Assets: Images x1 x2 Generate"
+      },
+      {
+        "command": "extension.new-getx-routers-generate",
+        "title": "☆ Getx: Routers Generate"
       },
       {
         "command": "extension.new-getx-create-directory",
@@ -39,7 +43,7 @@
       },
       {
         "command": "extension.new-getx-getbuilder-page",
-        "title": "Getx: GetBuilder Page"
+        "title": "★ Getx: GetBuilder Page"
       },
       {
         "command": "extension.new-getx-stateful-getbuilder-page",
@@ -54,6 +58,11 @@
       "explorer/context": [
         {
           "command": "extension.new-getx-assets-generate",
+          "group": "blocGroup@1",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.new-getx-routers-generate",
           "group": "blocGroup@1",
           "when": "explorerResourceIsFolder"
         },

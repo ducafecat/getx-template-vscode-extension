@@ -3,6 +3,8 @@
 import * as vscode from "vscode";
 
 import { imageGenerate } from "./commands/image-generate";
+import { routersGenerate } from "./commands/routers-generate";
+
 import { newGetxCommonDirectory } from "./commands/new-getx-create-common-directory.command";
 import { newGetxPage } from "./commands/new-getx-page.command";
 import { newGetxGetBuilderPage } from "./commands/new-getx-getbuilder-page.command";
@@ -29,6 +31,10 @@ export function activate(context: vscode.ExtensionContext) {
   // context.subscriptions.push(disposable);
 
   context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "extension.new-getx-routers-generate",
+      routersGenerate
+    ),
     vscode.commands.registerCommand(
       "extension.new-getx-assets-generate",
       imageGenerate
