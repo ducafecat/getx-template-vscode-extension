@@ -81,10 +81,10 @@ function imagesGen(targetDirectory: string) {
     }
 
     if (!existsSync(`${workDir}/${imgPath.base}`)) {
-      await scaleImage(`${workDir}/${imgPath.base}`, filePath, 0.25);
+      await scaleImage(`${workDir}/${imgPath.base}`, filePath, 3);
     }
     if (!existsSync(`${workDir}/2.0x/${imgPath.base}`)) {
-      await scaleImage(`${workDir}/2.0x/${imgPath.base}`, filePath, 0.5);
+      await scaleImage(`${workDir}/2.0x/${imgPath.base}`, filePath, 2);
     }
 
     // 删除文件
@@ -200,7 +200,9 @@ const scaleImage = (
         console.log(error);
         throw error;
       }
-      image.scale(scale).write(destinationImagePath);
+      let w = image.bitmap.width / scale;
+      let h = image.bitmap.height / scale;
+      image.resize(w, h).write(destinationImagePath);
       resolve();
     });
   });

@@ -147,7 +147,7 @@ import 'widgets/widgets.dart';
 class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
   const ${pascalCaseName}Page({Key? key}) : super(key: key);
 
-  // 内容页
+  // 主视图
   Widget _buildView() {
     return const HelloWidget();
   }
