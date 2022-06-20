@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.2.19] 2022-06-20
+
+- fix image 1x 2x
+
 ## [1.2.15] 2022-03-23
 
 - add router names generate
