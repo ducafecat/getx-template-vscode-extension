@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.2.21] 2020-07-25
+
+- update vscode core 1.69.0
+
 ## [1.2.19] 2022-06-20
 
 - fix image 1x 2x
