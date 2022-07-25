@@ -417,10 +417,10 @@
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
   integrity sha512-cxWFQVseBm6O9Gbw1IWb8r6OS4OhSt3hPZLkFApLjM8TEXROBuQGLAH2i2gZpcXdLBIrpXuTDhH7Vbm1iXmNGA==
 
-"@types/lodash@^4.14.121":
-  version "4.14.178"
-  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.178.tgz#341f6d2247db528d4a13ddbb374bcdc80406f4f8"
-  integrity sha512-0d5Wd09ItQWH1qFbEyQ7oTQ3GZrMfth5JkbN3EvTKLXcHLRDSXeLnlvlOn0wvxVIwK5o2M8JzP/OWz7T3NRsbw==
+"@types/lodash@^4.14.182":
+  version "4.14.182"
+  resolved "https://registry.npmmirror.com/@types/lodash/-/lodash-4.14.182.tgz#05301a4d5e62963227eaafe0ce04dd77c54ea5c2"
+  integrity sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==
 
 "@types/minimatch@*":
   version "3.0.4"
@@ -449,15 +449,15 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-14.17.2.tgz#1e94476db57ec93a372c7f7d29aa5707cfb92339"
   integrity sha512-sld7b/xmFum66AAKuz/rp/CUO8+98fMpyQ3SBfzzBNGMd/1iHBTAg9oyAvcYlAj46bpc74r91jSw2iFdnx29nw==
 
-"@types/semver@^6.0.2":
-  version "6.2.3"
-  resolved "https://registry.npmjs.org/@types/semver/-/semver-6.2.3.tgz#5798ecf1bec94eaa64db39ee52808ec0693315aa"
-  integrity sha512-KQf+QAMWKMrtBMsB8/24w53tEsxllMj6TuA80TT/5igJalLI/zm0L3oXRbIAl4Ohfc85gyHX/jhMwsVkmhLU4A==
+"@types/semver@^7.3.10":
+  version "7.3.10"
+  resolved "https://registry.npmmirror.com/@types/semver/-/semver-7.3.10.tgz#5f19ee40cbeff87d916eedc8c2bfe2305d957f73"
+  integrity sha512-zsv3fsC7S84NN6nPK06u79oWgrPVd0NvOyqgghV1haPaFcVxIrP4DLomRwGAXk0ui4HZA7mOcSFL98sMVW9viw==
 
-"@types/vscode@^1.56.0":
-  version "1.56.0"
-  resolved "https://registry.npmjs.org/@types/vscode/-/vscode-1.56.0.tgz#2a75ee6d66e529295648b0b6ee43824564ed9c1a"
-  integrity sha512-Q5VmQxOx+L1Y6lIJiGcJzwcyV3pQo/eiW8P+7sNLhFI16tJCwtua2DLjHRcpjbCLNVYpQM73kzfFo1Z0HyP9eQ==
+"@types/vscode@^1.69.0":
+  version "1.69.0"
+  resolved "https://registry.npmmirror.com/@types/vscode/-/vscode-1.69.0.tgz#a472011af392fbcf82cbb82f60b4c239c21b921c"
+  integrity sha512-RlzDAnGqUoo9wS6d4tthNyAdZLxOIddLiX3djMoWk29jFfSA1yJbIwr0epBYqqYarWB6s2Z+4VaZCQ80Jaa3kA==
 
 "@typescript-eslint/eslint-plugin@^4.14.1":
   version "4.26.0"
