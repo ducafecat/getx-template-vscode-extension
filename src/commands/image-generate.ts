@@ -67,7 +67,8 @@ function imagesGen(targetDirectory: string) {
       return;
     }
 
-    let find3x = imgPath.dir.toLowerCase().indexOf("/3.0x");
+    let dirPath = imgPath.dir.toLowerCase();
+    let find3x = dirPath.indexOf("3.0x");
     if (find3x === -1) {
       return;
     }

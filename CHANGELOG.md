@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.2.22] 2020-07-25
+
+- fix windows find images path 3.0x
+
 ## [1.2.21] 2020-07-25
 
 - update vscode core 1.69.0
