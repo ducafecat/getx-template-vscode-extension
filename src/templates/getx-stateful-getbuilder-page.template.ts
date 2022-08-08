@@ -54,11 +54,6 @@ class ${pascalCaseName}Controller extends GetxController {
   // void onClose() {
   //   super.onClose();
   // }
-
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  // }
 }
 `;
 

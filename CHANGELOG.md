@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.2.23] 2020-08-09
+
+- remove dispose code
+
 ## [1.2.22] 2020-07-25
 
 - fix windows find images path 3.0x
