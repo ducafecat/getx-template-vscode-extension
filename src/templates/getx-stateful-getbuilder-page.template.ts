@@ -82,7 +82,7 @@ class ${pascalCaseName}Page extends StatefulWidget {
   const ${pascalCaseName}Page({Key? key}) : super(key: key);
 
   @override
-  _${pascalCaseName}PageState createState() => _${pascalCaseName}PageState();
+  State<${pascalCaseName}Page> createState() => _${pascalCaseName}PageState();
 }
 
 class _${pascalCaseName}PageState extends State<${pascalCaseName}Page>
