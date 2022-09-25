@@ -1,14 +1,18 @@
 # Change Log
 
-## [1.2.23] 2020-08-09
+## [1.2.24] 2022-09-25
+
+- fix StatefulWidget
+
+## [1.2.23] 2022-08-09
 
 - remove dispose code
 
-## [1.2.22] 2020-07-25
+## [1.2.22] 2022-07-25
 
 - fix windows find images path 3.0x
 
-## [1.2.21] 2020-07-25
+## [1.2.21] 2022-07-25
 
 - update vscode core 1.69.0
 
