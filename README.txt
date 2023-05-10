@@ -1,7 +1,7 @@
 # GetX 项目代码生成工具
 
 <a href="https://ducafecat.com" target="_blank">
-  <img src="images/video-ducafecat-banner.png" alt="猫哥视频站" >
+  <img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/ducafecat/video-ducafecat-banner.png" alt="猫哥视频站" >
 </a>
 
 © 猫哥
@@ -47,7 +47,7 @@ https://ducafecat.com/course/flutter-tim
 
 ## 使用说明
 
-<img src="images/20220323162407.png" width="30%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220323162407.png" width="30%" />
 
 > 目录上右键菜单操作
 
@@ -62,15 +62,15 @@ assets/svgs/
 
 - 准备好你的 `assets/images/3.0x` 图片
 
-<img src="images/20220302165624.png" width="30%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165624.png" width="30%" />
 
 - 右键点击菜单 `Assets: Images x1 x2 Generate`
 
-<img src="images/20220302165708.png" width="30%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165708.png" width="30%" />
 
 - 成功生成了 `2.0x` 文件夹，和 `1x` 的图片
 
-<img src="images/20220302165742.png" width="30%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165742.png" width="30%" />
 
 ---
 
@@ -89,19 +89,19 @@ assets/svgs/files.txt
 
 - 生成 `files.txt` 常量列表
 
-<img src="images/20220302233654.png" width="70%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302233654.png" width="70%" />
 
 - 如果你把 `svg` 放到 `assets/svgs` 这个目录下，也会生成常量列表
 
-<img src="images/20220302234502.png" width="70%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302234502.png" width="70%" />
 
 ---
 
 ### 3. 生成规范 `common` 目录
 
-<img src="images/20220303003904.png" width="30%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220303003904.png" width="30%" />
 
-<img src="images/20220302094553.png" width="30%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302094553.png" width="30%" />
 
 自动创建开发目录
 
@@ -124,9 +124,9 @@ assets/svgs/files.txt
 
 ### 4. 生成 GetBuilder + GetView 的代码
 
-<img src="images/20220302175006.png" width="30%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302175006.png" width="30%" />
 
-<img src="images/2022-02-23-18-46-05.png" width="30%" />
+<img src="README/2022-02-23-18-46-05.png" width="30%" />
 
 只有 controller、view 两个文件
 
@@ -213,7 +213,7 @@ class AbcController extends GetxController {
 
 ### 5. 生成 StatefulWidget + GetBuilder + GetView 的代码
 
-<img src="images/20220302175042.png" width="30%" />
+<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302175042.png" width="30%" />
 
 这种是在 GetBuilder + GetView 的基础上，再加入了 StatefulWidget 包裹，比如你需要 mixin 一些功能的时候需要（AutomaticKeepAliveClientMixin、wantKeepAlive）。
 
@@ -315,11 +315,11 @@ class _MyViewGetX extends GetView<MyController> {
 
 ### 6. 生成 完整的代码
 
-![](images/vscode-getx.gif)
+![](README/vscode-getx.gif)
 
 鼠标右键你的视图目录，输入名称生成代码
 
-<img src="images/2022-02-23-18-45-12.png" width="30%" />
+<img src="README/2022-02-23-18-45-12.png" width="30%" />
 
 这种方式，包含了全部的 controller、view、widgets、bindings、state 拆分的很细致
 
@@ -481,7 +481,7 @@ export './hello.dart';
 
 `common/routers/names.txt` `common/routers/pages.txt` `pages/index.txt`
 
-![](images/20220323162715.png)
+![](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220323162715.png)
 
 lib/common/routes/names.txt
 
@@ -562,5 +562,5 @@ end
 - [bilibili](https://space.bilibili.com/404904528)
 
 <a href="https://ducafecat.com" target="_blank">
-  <img src="images/video-ducafecat-banner.png" alt="猫哥视频站" >
+  <img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/ducafecat/video-ducafecat-banner.png" alt="猫哥视频站" >
 </a>
