@@ -2,7 +2,7 @@
   "name": "getx-template",
   "displayName": "Flutter GetX Generator - 猫哥",
   "description": "It supports the getx library and provides effective creation of business modules for Flutter applications.",
-  "version": "1.2.24",
+  "version": "1.2.26",
   "engines": {
     "vscode": "^1.69.0"
   },
@@ -19,13 +19,20 @@
     "state-management"
   ],
   "repository": {
+    "type": "git",
     "url": "https://github.com/ducafecat/getx-template-vscode-extension"
   },
+  "bugs": {
+    "url": "https://github.com/ducafecat/getx-template-vscode-extension/issues",
+    "email": "ducafecat@gmail.com"
+  },
+  "README": "README.md",
   "publisher": "ducafecat",
   "icon": "logo.png",
   "activationEvents": [
     "workspaceContains:**/pubspec.yaml"
   ],
+  "pricing": "Free",
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
@@ -99,7 +106,7 @@
     "pretest": "yarn run test-compile && yarn run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
-    "vsce-package": "vsce package",
+    "build": "vsce package",
     "publish": "vsce publish"
   },
   "devDependencies": {

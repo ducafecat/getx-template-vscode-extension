@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.2.25] 2023-05-10
+
+- fix known bugs
+
 ## [1.2.24] 2022-09-25
 
 - fix StatefulWidget

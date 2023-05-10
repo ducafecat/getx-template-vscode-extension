@@ -1,26 +1,34 @@
 # GetX 项目代码生成工具
 
-<img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/ducafecat-logo-white.png" width="30%" />
+<a href="https://ducafecat.com" target="_blank">
+  <img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/ducafecat/video-ducafecat-banner.png" alt="猫哥视频站" >
+</a>
 
 © 猫哥
 
 - 微信 ducafecat
 
-- [博客 ducafecat.tech](https://ducafecat.tech/)
+- [ducafecat.com](https://ducafecat.com/)
 
 - [github](https://github.com/ducafecat)
 
 - [bilibili](https://space.bilibili.com/404904528)
 
-![订阅号](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165922.png)
-
 ---
 
-这个插件是和 [flutter_ducafecat_news_getx](https://github.com/ducafecat/flutter_ducafecat_news_getx) 配套使用的
+- 插件配套项目
 
-- github 仓库地址
+免费开源项目示例 [flutter_ducafecat_news_getx](https://github.com/ducafecat/flutter_ducafecat_news_getx) 配套使用。
 
-https://github.com/ducafecat/flutter_ducafecat_news_getx
+- 商业 APP 模版课程
+
+欢迎使用我们的商业模版项目，快速开发你的项目并上线。
+
+https://ducafecat.com/course/flutter-woo
+
+- 腾讯 tim 即时通讯项目课程
+
+https://ducafecat.com/course/flutter-tim
 
 ## 功能
 
@@ -30,7 +38,10 @@ https://github.com/ducafecat/flutter_ducafecat_news_getx
 4. 生成 `GetBuilder + GetView` 的代码
 5. 生成 `StatefulWidget + GetBuilder + GetView` 的代码
 6. 生成 `controller、view、widgets、bindings、state、index ` 完整的代码
-7. 生成 路由声明定义文件 `common/routers/names.txt` `common/routers/pages.txt` `pages/index.txt`
+7. 生成 路由声明定义文件
+   > common/routers/names.txt
+   > common/routers/pages.txt
+   > pages/index.txt
 
 ---
 
@@ -544,10 +555,12 @@ end
 
 - 微信 ducafecat
 
-- [博客 ducafecat.tech](https://ducafecat.tech/)
+- [ducafecat.com](https://ducafecat.com/)
 
 - [github](https://github.com/ducafecat)
 
 - [bilibili](https://space.bilibili.com/404904528)
 
-![订阅号](https://ducafecat.oss-cn-beijing.aliyuncs.com/podcast/20220302165922.png)
+<a href="https://ducafecat.com" target="_blank">
+  <img src="https://ducafecat.oss-cn-beijing.aliyuncs.com/ducafecat/video-ducafecat-banner.png" alt="猫哥视频站" >
+</a>
