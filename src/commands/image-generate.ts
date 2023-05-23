@@ -121,7 +121,7 @@ async function imagesGen(targetDirectory: string): Promise<void> {
       }
 
       // 加入记录
-      const imgRelativePath = getRelativePath(imgPath3x, rootPath);
+      const imgRelativePath = getRelativePath(imgPath1x, rootPath);
       await appendFileAsync(
         path.join(workDir, "files.txt"),
         `static const ${changeCase.camelCase(
