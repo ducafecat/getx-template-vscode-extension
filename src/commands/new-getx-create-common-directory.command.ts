@@ -2,7 +2,7 @@ import * as _ from "lodash";
 import * as changeCase from "change-case";
 import mkdirp from "mkdirp";
 import { InputBoxOptions, OpenDialogOptions, Uri, window } from "vscode";
-import { existsSync, lstatSync, writeFile } from "fs";
+import { existsSync, lstatSync, mkdirSync, writeFile } from "fs";
 import {
   indexTemplate,
   index2Template,
@@ -60,15 +60,12 @@ export const newGetxCommonDirectory = async (uri: Uri) => {
 //   });
 // }
 
-function createDirectory(targetDirectory: string): Promise<void> {
-  return new Promise((resolve, reject) => {
-    mkdirp(targetDirectory, (error: any) => {
-      if (error) {
-        return reject(error);
-      }
-      resolve();
-    });
-  });
+function createDirectory(targetDirectory: string): void {
+  try {
+    mkdirSync(targetDirectory, { recursive: true });
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function generateCode(pageName: string, targetDirectory: string) {
