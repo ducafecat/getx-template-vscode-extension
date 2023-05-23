@@ -5,7 +5,13 @@ import { InputBoxOptions, OpenDialogOptions, Uri, window } from "vscode";
 import { existsSync, lstatSync, writeFile } from "fs";
 import {
   indexTemplate,
+  index2Template,
   commonIndexTemplate,
+  commonRouterNames,
+  commonRouterPages,
+  commonValuesConstants,
+  commonValuesImages,
+  commonValuesSvgs,
 } from "../templates/getx-create-common-directory.template";
 
 export const newGetxCommonDirectory = async (uri: Uri) => {
@@ -69,36 +75,66 @@ async function generateCode(pageName: string, targetDirectory: string) {
   const pageDirectoryPath = `${targetDirectory}/${pageName}`;
   if (!existsSync(pageDirectoryPath)) {
     // pages
-    await createDirectory(`${targetDirectory}/pages`);
+    createDirectory(`${targetDirectory}/pages`);
     indexTemplate("pages", targetDirectory);
 
     // common
-    await createDirectory(pageDirectoryPath);
-    await createDirectory(`${pageDirectoryPath}/i18n`);
-    await createDirectory(`${pageDirectoryPath}/api`);
-    await createDirectory(`${pageDirectoryPath}/models`);
-    await createDirectory(`${pageDirectoryPath}/routers`);
-    await createDirectory(`${pageDirectoryPath}/services`);
-    await createDirectory(`${pageDirectoryPath}/style`);
-    await createDirectory(`${pageDirectoryPath}/utils`);
-    await createDirectory(`${pageDirectoryPath}/values`);
-    await createDirectory(`${pageDirectoryPath}/widgets`);
-    await createDirectory(`${pageDirectoryPath}/components`);
-    await createDirectory(`${pageDirectoryPath}/extension`);
+    createDirectory(pageDirectoryPath);
+    createDirectory(`${pageDirectoryPath}/i18n`);
+    createDirectory(`${pageDirectoryPath}/api`);
+    createDirectory(`${pageDirectoryPath}/models`);
+    createDirectory(`${pageDirectoryPath}/routers`);
+    createDirectory(`${pageDirectoryPath}/services`);
+    createDirectory(`${pageDirectoryPath}/style`);
+    createDirectory(`${pageDirectoryPath}/utils`);
+    createDirectory(`${pageDirectoryPath}/values`);
+    createDirectory(`${pageDirectoryPath}/widgets`);
+    createDirectory(`${pageDirectoryPath}/components`);
+    createDirectory(`${pageDirectoryPath}/extension`);
 
-    await Promise.all([
-      indexTemplate("i18n", pageDirectoryPath),
-      indexTemplate("api", pageDirectoryPath),
-      indexTemplate("models", pageDirectoryPath),
-      indexTemplate("routers", pageDirectoryPath),
-      indexTemplate("services", pageDirectoryPath),
-      indexTemplate("style", pageDirectoryPath),
-      indexTemplate("utils", pageDirectoryPath),
-      indexTemplate("values", pageDirectoryPath),
-      indexTemplate("widgets", pageDirectoryPath),
-      indexTemplate("components", pageDirectoryPath),
-      indexTemplate("extension", pageDirectoryPath),
-      commonIndexTemplate(pageDirectoryPath),
-    ]);
+    // 路由定义
+    commonRouterNames(pageDirectoryPath);
+    // 路由命名
+    commonRouterPages(pageDirectoryPath);
+
+    // 常量
+    commonValuesConstants(pageDirectoryPath);
+    commonValuesImages(pageDirectoryPath);
+    commonValuesSvgs(pageDirectoryPath);
+
+    // 目录索引 index.dart 文件
+    indexTemplate("i18n", pageDirectoryPath);
+    indexTemplate("api", pageDirectoryPath);
+    indexTemplate("models", pageDirectoryPath);
+    // indexTemplate("routers", pageDirectoryPath);
+    indexTemplate("services", pageDirectoryPath);
+    indexTemplate("style", pageDirectoryPath);
+    indexTemplate("utils", pageDirectoryPath);
+    // indexTemplate("values", pageDirectoryPath);
+    indexTemplate("widgets", pageDirectoryPath);
+    indexTemplate("components", pageDirectoryPath);
+    indexTemplate("extension", pageDirectoryPath);
+    commonIndexTemplate(pageDirectoryPath);
+
+    index2Template(
+      "routers",
+      `
+export 'names.dart';
+export 'pages.dart';
+    `,
+      pageDirectoryPath
+    );
+
+    index2Template(
+      "values",
+      `
+export 'constants.dart';
+export 'images.dart';
+export 'svgs.dart';
+    `,
+      pageDirectoryPath
+    );
+
+    // end
   }
 }

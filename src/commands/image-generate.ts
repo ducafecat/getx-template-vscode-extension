@@ -19,8 +19,22 @@ import * as path from "path";
 // import Jimp = require("jimp");
 import Jimp from "jimp";
 
+import * as vscode from "vscode";
+import * as fs from "fs";
+import { promisify } from "util";
+const existsAsync = promisify(fs.exists);
+const mkdirAsync = promisify(fs.mkdir);
+const unlinkAsync = promisify(fs.unlink);
+const appendFileAsync = promisify(fs.appendFile);
+
+var rootPath = "";
+
 export const imageGenerate = async (uri: Uri) => {
-  console.log(uri);
+  if (vscode.workspace.workspaceFolders) {
+    rootPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+  } else {
+    vscode.window.showErrorMessage("没有打开的工作区！");
+  }
 
   let targetDirectory = uri.fsPath;
   console.log(targetDirectory);
@@ -41,7 +55,7 @@ export const imageGenerate = async (uri: Uri) => {
     // }
 
     /**/
-    imagesGen(targetDirectory);
+    await imagesGen(targetDirectory);
     svgsGen(targetDirectory);
 
     window.showInformationMessage(`Successfully Generated Images Directory`);
@@ -53,86 +67,121 @@ export const imageGenerate = async (uri: Uri) => {
   }
 };
 
-function imagesGen(targetDirectory: string) {
-  let isFirst = true;
-  walkSync(targetDirectory, async (filePath: string, stat: object) => {
-    var imgPath = path.parse(filePath);
-    let lowExt = imgPath.ext.toLowerCase();
-    if (
-      lowExt !== ".jpeg" &&
-      lowExt !== ".jpg" &&
-      lowExt !== ".png"
-      // imgPath.dir.toLowerCase().indexOf("3.0x") === -1
-    ) {
-      return;
-    }
+async function imagesGen(targetDirectory: string): Promise<void> {
+  let isFirstIteration = true;
 
-    let dirPath = imgPath.dir.toLowerCase();
-    let find3x = dirPath.indexOf("3.0x");
-    if (find3x === -1) {
-      return;
-    }
-
-    let workDir = path.resolve(imgPath.dir, ".."); // 上一级目录
-    console.log(filePath, workDir);
-
-    // 创建 2.0x 1.0x
-    if (!existsSync(`${workDir}/2.0x`)) {
-      createDirectory(`${workDir}/2.0x`);
-    }
-
-    if (!existsSync(`${workDir}/${imgPath.base}`)) {
-      await scaleImage(`${workDir}/${imgPath.base}`, filePath, 3);
-    }
-    if (!existsSync(`${workDir}/2.0x/${imgPath.base}`)) {
-      await scaleImage(`${workDir}/2.0x/${imgPath.base}`, filePath, 2);
-    }
-
-    // 删除文件
-    if (isFirst === true) {
-      isFirst = false;
-      if (existsSync(`${workDir}/files.txt`)) {
-        rmSync(`${workDir}/files.txt`);
+  const files = fs.readdirSync(targetDirectory, { withFileTypes: true });
+  for (const file of files) {
+    if (file.isDirectory()) {
+      const subdirectory = path.join(targetDirectory, file.name);
+      await imagesGen(subdirectory);
+    } else {
+      const ext = path.extname(file.name).toLowerCase();
+      if (![".jpeg", ".jpg", ".png"].includes(ext)) {
+        continue;
       }
+
+      const imgPath = path.parse(file.name);
+      // const dirPath = imgPath.dir.toLowerCase();
+      if (!targetDirectory.includes("3.0x")) {
+        continue;
+      }
+
+      const workDir = path.resolve(targetDirectory, imgPath.dir, "..");
+      console.log(file.name, workDir);
+
+      // 创建 2.0x 目录
+      if (isFirstIteration) {
+        isFirstIteration = false;
+        const filesTxtPath = path.join(workDir, "files.txt");
+        if (await existsAsync(filesTxtPath)) {
+          await unlinkAsync(filesTxtPath);
+        }
+      }
+
+      // 缩放图片并写入文件列表
+      const imgPath1x = path.join(workDir, file.name);
+      const imgPath2x = path.join(workDir, "2.0x", file.name);
+      const imgPath3x = path.join(targetDirectory, file.name);
+
+      // 2x 目录
+      const path2x = path.join(workDir, "2.0x");
+      if (!(await existsAsync(path2x))) {
+        await mkdirAsync(path2x);
+      }
+
+      // 1x 图片
+      if (!(await existsAsync(imgPath1x))) {
+        await scaleImage(imgPath1x, imgPath3x, 3);
+      }
+
+      // 2x 图片
+      if (!(await existsAsync(imgPath2x))) {
+        await scaleImage(imgPath2x, imgPath3x, 2);
+      }
+
+      // 加入记录
+      const imgRelativePath = getRelativePath(imgPath3x, rootPath);
+      await appendFileAsync(
+        path.join(workDir, "files.txt"),
+        `static const ${changeCase.camelCase(
+          file.name
+        )} = '${imgRelativePath}';\r\n`,
+        { encoding: "utf8" }
+      );
     }
-    // 写入列表
-    appendFileSync(
-      `${workDir}/files.txt`,
-      `static const ${changeCase.camelCase(imgPath.base)} = 'assets/images/${
-        imgPath.base
-      }';\r\n`,
-      "utf8"
-    );
-  });
+  }
 }
 
-function svgsGen(targetDirectory: string) {
+function svgsGen(targetDirectory: string): void {
   let isFirst = true;
-  walkSync(targetDirectory, async (filePath: string, stat: object) => {
-    var imgPath = path.parse(filePath);
-    let lowExt = imgPath.ext.toLowerCase();
-    if (lowExt !== ".svg") {
-      return;
+
+  try {
+    // Ensure targetDirectory exists before reading it
+    if (!existsSync(targetDirectory)) {
+      throw new Error(`Directory '${targetDirectory}' does not exist.`);
     }
 
-    let workDir = imgPath.dir;
+    const fileNames = readdirSync(targetDirectory);
 
-    // 删除文件
-    if (isFirst === true) {
-      isFirst = false;
-      if (existsSync(`${workDir}/files.txt`)) {
-        rmSync(`${workDir}/files.txt`);
+    for (const fileName of fileNames) {
+      const filePath = path.join(targetDirectory, fileName);
+      const stats = statSync(filePath);
+
+      if (stats.isDirectory()) {
+        svgsGen(filePath);
+      } else if (stats.isFile()) {
+        const imgPath = path.parse(filePath);
+        const lowExt = imgPath.ext.toLowerCase();
+        if (lowExt !== ".svg") {
+          continue;
+        }
+
+        const workDir = targetDirectory;
+        const filesTxtPath = path.join(workDir, "files.txt");
+
+        // Delete files.txt if it exists and isFirst is true
+        if (isFirst) {
+          isFirst = false;
+          if (existsSync(filesTxtPath)) {
+            rmSync(filesTxtPath);
+          }
+        }
+
+        // Write to files.txt
+        const svgName = changeCase.camelCase(imgPath.base);
+        // const svgPath = path.join("assets/svgs", imgPath.base);
+        const svgRelPath = getRelativePath(filePath, rootPath);
+        appendFileSync(
+          filesTxtPath,
+          `static const ${svgName} = '${svgRelPath}';\n`,
+          "utf8"
+        );
       }
     }
-    // 写入列表
-    appendFileSync(
-      `${workDir}/files.txt`,
-      `static const ${changeCase.camelCase(imgPath.base)} = 'assets/svgs/${
-        imgPath.base
-      }';\r\n`,
-      "utf8"
-    );
-  });
+  } catch (error: any) {
+    console.error(`Error in svgsGen: ${error.message}`);
+  }
 }
 
 function fileDisplay(filePath: string, fileList: string[]) {
@@ -207,4 +256,9 @@ const scaleImage = (
       resolve();
     });
   });
+};
+
+const getRelativePath = (filePath: string, targetDirectory: string): string => {
+  const relativePath = path.relative(targetDirectory, filePath);
+  return relativePath.replace(/\\/g, "/");
 };
