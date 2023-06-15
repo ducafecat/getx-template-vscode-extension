@@ -112,12 +112,12 @@ async function imagesGen(targetDirectory: string): Promise<void> {
 
       // 1x 图片
       if (!(await existsAsync(imgPath1x))) {
-        await scaleImage(imgPath1x, imgPath3x, 3);
+        await scaleImage(imgPath1x, imgPath3x, 0.3334);
       }
 
       // 2x 图片
       if (!(await existsAsync(imgPath2x))) {
-        await scaleImage(imgPath2x, imgPath3x, 2);
+        await scaleImage(imgPath2x, imgPath3x, 0.6667);
       }
 
       // 加入记录
@@ -250,8 +250,11 @@ const scaleImage = (
         console.log(error);
         throw error;
       }
-      let w = image.bitmap.width / scale;
-      let h = image.bitmap.height / scale;
+      let w = image.bitmap.width * scale;
+      let h = image.bitmap.height * scale;
+      // w h 取整
+      w = Math.round(w);
+      h = Math.round(h);
       image.resize(w, h).write(destinationImagePath);
       resolve();
     });
