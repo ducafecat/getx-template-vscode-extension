@@ -79,7 +79,7 @@ import 'package:get/get.dart';
 import 'index.dart';
 
 class ${pascalCaseName}Page extends GetView<${pascalCaseName}Controller> {
-  const ${pascalCaseName}Page({Key? key}) : super(key: key);
+  const ${pascalCaseName}Page({super.key});
 
   // 主视图
   Widget _buildView() {

@@ -55,6 +55,8 @@ export const imageGenerate = async (uri: Uri) => {
     // }
 
     /**/
+    // console.log("start");
+
     await imagesGen(targetDirectory);
     svgsGen(targetDirectory);
 
@@ -72,6 +74,7 @@ async function imagesGen(targetDirectory: string): Promise<void> {
 
   const files = fs.readdirSync(targetDirectory, { withFileTypes: true });
   for (const file of files) {
+    // console.log(1, file.name);
     if (file.isDirectory()) {
       const subdirectory = path.join(targetDirectory, file.name);
       await imagesGen(subdirectory);

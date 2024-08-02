@@ -1,11 +1,11 @@
 Arguments: 
-  /Users/ducafecat/.nvm/versions/node/v14.18.1/bin/node /usr/local/Cellar/yarn/1.22.18/libexec/bin/yarn.js publish
+  /Users/ducafecat/.nvm/versions/node/v14.18.1/bin/node /usr/local/Cellar/yarn/1.22.19/libexec/bin/yarn.js publish
 
 PATH: 
-  /usr/local/opt/php@7.4/sbin:/usr/local/opt/php@7.4/bin:/Users/ducafecat/.gvm/pkgsets/go1.16/global/bin:/Users/ducafecat/.gvm/gos/go1.16/bin:/Users/ducafecat/.gvm/pkgsets/go1.16/global/overlay/bin:/Users/ducafecat/.gvm/bin:/Users/ducafecat/.gvm/bin:/Users/ducafecat/.nvm/versions/node/v14.18.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Users/ducafecat/.cargo/bin:/Users/ducafecat/fvm/default/bin:/Users/ducafecat/fvm/default/bin/cache/dart-sdk/bin:/Users/ducafecat/.pub-cache/bin:/Users/ducafecat/Library/Android/sdk/platform-tools:/Users/ducafecat/Library/Android/sdk/tools:/Users/ducafecat/Documents/soft/bin:/Users/ducafecat/Documents/sdk/mongodb/bin:/Users/ducafecat/Documents/soft/ffmpeg:/Users/ducafecat/Documents/soft/ImageMagick/bin:/Users/ducafecat/Documents/project-go/bin:/Users/ducafecat/.gvm/gos/go1.16/bin:/Users/ducafecat/Documents/soft/apache-jmeter-master/bin
+  /Users/ducafecat/.nvm/versions/node/v14.18.1/bin:/Users/ducafecat/.nvm/versions/node/v14.19.3/bin:/Users/ducafecat/.nvm/versions/node/v18.18.0/bin:/Users/ducafecat/.pyenv/shims:/usr/local/opt/php@7.4/sbin:/usr/local/opt/php@7.4/bin:/usr/local/lib/ruby/gems/3.2.0/bin:/usr/local/opt/ruby/bin:/Users/ducafecat/.gvm/pkgsets/go1.20.11/global/bin:/Users/ducafecat/.gvm/gos/go1.20.11/bin:/Users/ducafecat/.gvm/pkgsets/go1.20.11/global/overlay/bin:/Users/ducafecat/.gvm/bin:/Users/ducafecat/.gvm/bin:/Users/ducafecat/.nvm/versions/node/v18.18.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Applications/VMware Fusion.app/Contents/Public:/usr/local/share/dotnet:~/.dotnet/tools:/usr/local/opt/php@7.4/sbin:/usr/local/opt/php@7.4/bin:/usr/local/lib/ruby/gems/3.2.0/bin:/usr/local/opt/ruby/bin:/Users/ducafecat/.gvm/pkgsets/go1.20.11/global/bin:/Users/ducafecat/.gvm/gos/go1.20.11/bin:/Users/ducafecat/.gvm/pkgsets/go1.20.11/global/overlay/bin:/Users/ducafecat/.gvm/bin:/Users/ducafecat/.nvm/versions/node/v20.11.1/bin:/Users/ducafecat/.cargo/bin:/Users/ducafecat/fvm/default/bin:/Users/ducafecat/fvm/default/bin/cache/dart-sdk/bin:/Users/ducafecat/fvm/default/.pub-cache/bin:/Users/ducafecat/fvm/default/.pub-cache/bin/bin:/Users/ducafecat/.pub-cache/bin:/Users/ducafecat/Library/Android/sdk/platform-tools:/Users/ducafecat/Library/Android/sdk/tools:/Users/ducafecat/.shorebird/bin:/Users/ducafecat/Documents/soft/bin:/Users/ducafecat/Documents/sdk/mongodb/bin:/Users/ducafecat/Documents/soft/ffmpeg:/Users/ducafecat/Documents/soft/ImageMagick/bin:/Users/ducafecat/Documents/soft/apache-jmeter-master/bin:/Users/ducafecat/.rvm/bin:/Applications/iTerm.app/Contents/Resources/utilities:/Users/ducafecat/fvm/default/bin:/Users/ducafecat/fvm/default/bin/cache/dart-sdk/bin:/Users/ducafecat/fvm/default/.pub-cache/bin:/Users/ducafecat/fvm/default/.pub-cache/bin/bin:/Users/ducafecat/.pub-cache/bin:/Users/ducafecat/Library/Android/sdk/platform-tools:/Users/ducafecat/Library/Android/sdk/tools:/Users/ducafecat/.shorebird/bin:/Users/ducafecat/Documents/soft/bin:/Users/ducafecat/Documents/sdk/mongodb/bin:/Users/ducafecat/Documents/soft/ffmpeg:/Users/ducafecat/Documents/soft/ImageMagick/bin:/Users/ducafecat/Documents/soft/apache-jmeter-master/bin
 
 Yarn version: 
-  1.22.18
+  1.22.19
 
 Node version: 
   14.18.1
@@ -15,7 +15,7 @@ Platform:
 
 Trace: 
   Error: canceled
-      at Interface.<anonymous> (/usr/local/Cellar/yarn/1.22.18/libexec/lib/cli.js:137143:13)
+      at Interface.<anonymous> (/usr/local/Cellar/yarn/1.22.19/libexec/lib/cli.js:137150:13)
       at Interface.emit (events.js:400:28)
       at Interface._ttyWrite (readline.js:1001:16)
       at ReadStream.onkeypress (readline.js:265:10)
@@ -31,9 +31,9 @@ npm manifest:
     "name": "getx-template",
     "displayName": "Flutter GetX Generator - 猫哥",
     "description": "It supports the getx library and provides effective creation of business modules for Flutter applications.",
-    "version": "1.2.21",
+    "version": "1.2.34",
     "engines": {
-      "vscode": "^1.56.0"
+      "vscode": "^1.69.0"
     },
     "categories": [
       "Programming Languages",
@@ -48,13 +48,20 @@ npm manifest:
       "state-management"
     ],
     "repository": {
+      "type": "git",
       "url": "https://github.com/ducafecat/getx-template-vscode-extension"
     },
+    "bugs": {
+      "url": "https://github.com/ducafecat/getx-template-vscode-extension/issues",
+      "email": "ducafecat@gmail.com"
+    },
+    "README": "README.md",
     "publisher": "ducafecat",
     "icon": "logo.png",
     "activationEvents": [
       "workspaceContains:**/pubspec.yaml"
     ],
+    "pricing": "Free",
     "main": "./dist/extension.js",
     "contributes": {
       "commands": [
@@ -128,7 +135,7 @@ npm manifest:
       "pretest": "yarn run test-compile && yarn run lint",
       "lint": "eslint src --ext ts",
       "test": "node ./out/test/runTest.js",
-      "vsce-package": "vsce package",
+      "build": "vsce package",
       "publish": "vsce publish"
     },
     "devDependencies": {
