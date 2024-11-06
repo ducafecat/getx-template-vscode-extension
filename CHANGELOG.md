@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.2.35] 2024-11-06
+
+- 修正 `Getx Full Page` super.key
+
 ## [1.2.34] 2024-08-02
 
 - 修正 super.key

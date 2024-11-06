@@ -98,7 +98,7 @@ class _${pascalCaseName}PageState extends State<${pascalCaseName}Page>
 }
 
 class _${pascalCaseName}ViewGetX extends GetView<${pascalCaseName}Controller> {
-  const _${pascalCaseName}ViewGetX({Key? key}) : super(key: key);
+  const _${pascalCaseName}ViewGetX({super.key});
 
   // 主视图
   Widget _buildView() {
